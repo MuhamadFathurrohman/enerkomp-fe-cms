@@ -1,0 +1,718 @@
+.brands-form {
+  font-family: "Poppins", sans-serif;
+  color: #2d4c52;
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.brands-form input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+.brands-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.brands-form .form-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #fecaca;
+  animation: slideDown 0.3s ease;
+}
+.brands-form .form-error svg {
+  flex-shrink: 0;
+}
+.brands-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.brands-form .form-group label {
+  font-weight: 700;
+  color: #2d4c52;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.brands-form .form-group label svg {
+  color: #2d4c52;
+  flex-shrink: 0;
+}
+.brands-form .form-group label .required {
+  color: #ef4444;
+  font-size: 16px;
+  line-height: 1;
+  margin-left: 2px;
+}
+.brands-form .form-group .form-input {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid rgba(45, 76, 82, 0.5);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5d63;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  background: white;
+  transition: all 0.2s ease;
+}
+.brands-form .form-group .form-input:hover {
+  border-color: #9ca3af;
+}
+.brands-form .form-group .form-input:focus {
+  outline: none;
+  border-color: #f3994b;
+  box-shadow: 0 0 0 3px rgba(243, 153, 75, 0.15);
+}
+.brands-form .form-group .form-input::-moz-placeholder {
+  color: #9ca3af;
+  font-weight: 500;
+}
+.brands-form .form-group .form-input::placeholder {
+  color: #9ca3af;
+  font-weight: 500;
+}
+.brands-form .form-group .form-input:-webkit-autofill, .brands-form .form-group .form-input:-webkit-autofill:hover, .brands-form .form-group .form-input:-webkit-autofill:focus, .brands-form .form-group .form-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #4a5d63 !important;
+  caret-color: #4a5d63;
+  /* // trik agar background autofill tidak kuning */
+  -webkit-transition: background-color 9999s ease-in-out 0s;
+  transition: background-color 9999s ease-in-out 0s;
+}
+.brands-form .form-group .field-hint {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: -2px;
+}
+.brands-form .image-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.brands-form .image-upload .image-input {
+  display: none;
+}
+.brands-form .image-upload .image-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #2d4c52, #1e3a40);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: -moz-fit-content;
+  width: fit-content;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.brands-form .image-upload .image-label:hover {
+  background: linear-gradient(135deg, #1e3a40, #162a2e);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.brands-form .image-upload .image-preview {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+.brands-form .image-upload .image-preview img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background: white;
+}
+.brands-form .image-upload .image-preview .remove-image-btn {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(220, 38, 38, 0.9);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.brands-form .image-upload .image-preview .remove-image-btn:hover {
+  background: rgba(185, 28, 28, 0.95);
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.brands-form .image-upload .upload-error-tooltip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #fecaca;
+  animation: slideDown 0.3s ease;
+}
+.brands-form .image-upload .upload-error-tooltip svg {
+  flex-shrink: 0;
+}
+.brands-form .type-toggle {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.brands-form .type-toggle button {
+  min-width: 120px;
+  padding: 10px 0;
+  background: none;
+  border-radius: 8px;
+  color: #2d4c52;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.brands-form .type-toggle button::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  background: white;
+  transition: all 0.2s ease;
+}
+.brands-form .type-toggle button:hover:not(.active) {
+  border-color: #cbd5e1;
+}
+.brands-form .type-toggle button.active {
+  color: #2d4c52;
+}
+.brands-form .type-toggle button.active::before {
+  border-color: #2d4c52;
+  background: #2d4c52;
+  box-shadow: inset 0 0 0 3px white;
+}
+.brands-form .status-toggle {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.brands-form .status-toggle button {
+  min-width: 120px;
+  padding: 10px 0;
+  border-radius: 8px;
+  background: none;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.brands-form .status-toggle button::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  background: white;
+  transition: all 0.2s ease;
+}
+.brands-form .status-toggle button:hover:not(.active) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+.brands-form .status-toggle button.active {
+  color: #2d4c52;
+}
+.brands-form .status-toggle button.active::before {
+  border-color: #2d4c52;
+  background: #2d4c52;
+  box-shadow: inset 0 0 0 3px white;
+}
+.brands-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+.brands-form .form-actions button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 120px;
+}
+.brands-form .form-actions .btn-secondary {
+  background: white;
+  color: #6b7280;
+  border: 2px solid #e2e8f0;
+}
+.brands-form .form-actions .btn-secondary:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #2d4c52;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+.brands-form .form-actions .btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.brands-form .form-actions .btn-primary {
+  background: linear-gradient(135deg, #f3994b, #e6863f);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px rgba(243, 153, 75, 0.3);
+}
+.brands-form .form-actions .btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e6863f, #d97706);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(243, 153, 75, 0.4);
+}
+.brands-form .form-actions .btn-primary:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+.brands-form .form-actions .btn-primary .btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 1440px) {
+  .brands-form {
+    padding: 20px;
+  }
+  .brands-form .form-group .form-input {
+    padding: 11px 13px;
+  }
+  .brands-form .image-upload .image-label {
+    padding: 9px 18px;
+  }
+  .brands-form .image-upload .image-preview {
+    width: 130px;
+    height: 130px;
+  }
+  .brands-form .image-upload .image-preview .remove-image-btn {
+    font-size: 10px;
+    padding: 5px 12px;
+  }
+  .brands-form .image-upload .upload-error-tooltip {
+    font-size: 11px;
+    padding: 7px 11px;
+  }
+  .brands-form .type-display .type-badge {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+  .brands-form .status-toggle button {
+    padding: 9px 15px;
+  }
+  .brands-form .form-actions button {
+    padding: 11px 22px;
+  }
+}
+@media (max-width: 1280px) {
+  .brands-form {
+    padding: 18px;
+  }
+  .brands-form .form-group label {
+    font-size: 13px;
+  }
+  .brands-form .form-group label svg {
+    width: 15px;
+    height: 15px;
+  }
+  .brands-form .form-group label .required {
+    font-size: 15px;
+  }
+  .brands-form .form-group .form-input {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+  .brands-form .form-group .field-hint {
+    font-size: 11px;
+  }
+  .brands-form .image-upload .image-label {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+  .brands-form .image-upload .image-preview {
+    width: 120px;
+    height: 120px;
+  }
+  .brands-form .image-upload .image-preview .remove-image-btn {
+    font-size: 10px;
+    padding: 5px 12px;
+  }
+  .brands-form .image-upload .upload-error-tooltip {
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+  .brands-form .type-display .type-badge {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+  .brands-form .type-display .type-hint {
+    font-size: 11px;
+  }
+  .brands-form .status-toggle button {
+    font-size: 13px;
+    padding: 9px 14px;
+    min-width: 110px;
+  }
+  .brands-form .status-toggle button::before {
+    width: 16px;
+    height: 16px;
+  }
+  .brands-form .form-actions button {
+    font-size: 13px;
+    padding: 10px 20px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 1024px) {
+  .brands-form {
+    padding: 16px;
+  }
+  .brands-form .form-group {
+    gap: 6px;
+  }
+  .brands-form .form-group label {
+    font-size: 13px;
+  }
+  .brands-form .form-group label svg {
+    width: 14px;
+    height: 14px;
+  }
+  .brands-form .form-group .form-input {
+    font-size: 13px;
+    padding: 10px;
+  }
+  .brands-form .image-upload {
+    gap: 10px;
+  }
+  .brands-form .image-upload .image-label {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+  .brands-form .image-upload .image-preview {
+    width: 110px;
+    height: 110px;
+  }
+  .brands-form .image-upload .image-preview .remove-image-btn {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+  .brands-form .image-upload .upload-error-tooltip {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+  .brands-form .type-display .type-badge {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .brands-form .type-display .type-hint {
+    font-size: 11px;
+  }
+  .brands-form .status-toggle {
+    gap: 10px;
+  }
+  .brands-form .status-toggle button {
+    font-size: 13px;
+    padding: 8px 12px;
+    min-width: 100px;
+  }
+  .brands-form .status-toggle button::before {
+    width: 16px;
+    height: 16px;
+  }
+  .brands-form .form-actions {
+    padding-top: 16px;
+  }
+  .brands-form .form-actions button {
+    font-size: 13px;
+    padding: 10px 18px;
+    min-width: 100px;
+  }
+}
+@media (max-width: 800px) {
+  .brands-form {
+    padding: 14px;
+  }
+  .brands-form form {
+    gap: 16px;
+  }
+  .brands-form .form-group label {
+    font-size: 12px;
+  }
+  .brands-form .form-group .form-input {
+    font-size: 12px;
+    padding: 9px;
+  }
+  .brands-form .form-group .field-hint {
+    font-size: 11px;
+  }
+  .brands-form .image-upload {
+    gap: 10px;
+  }
+  .brands-form .image-upload .image-label {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+  .brands-form .image-upload .image-preview {
+    width: 100px;
+    height: 100px;
+  }
+  .brands-form .image-upload .image-preview .remove-image-btn {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+  .brands-form .image-upload .upload-error-tooltip {
+    font-size: 10px;
+    padding: 6px 9px;
+  }
+  .brands-form .image-upload .upload-error-tooltip svg {
+    width: 12px;
+    height: 12px;
+  }
+  .brands-form .type-display .type-badge {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .brands-form .type-display .type-hint {
+    font-size: 10px;
+  }
+  .brands-form .status-toggle {
+    gap: 8px;
+  }
+  .brands-form .status-toggle button {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-width: 90px;
+  }
+  .brands-form .status-toggle button::before {
+    width: 14px;
+    height: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .brands-form {
+    padding: 16px;
+  }
+  .brands-form form {
+    gap: 14px;
+  }
+  .brands-form .form-group {
+    gap: 6px;
+  }
+  .brands-form .form-group label {
+    font-size: 12px;
+  }
+  .brands-form .form-group label svg {
+    width: 13px;
+    height: 13px;
+  }
+  .brands-form .form-group label .required {
+    font-size: 14px;
+  }
+  .brands-form .form-group .form-input {
+    font-size: 12px;
+    padding: 8px;
+  }
+  .brands-form .image-upload {
+    gap: 8px;
+  }
+  .brands-form .image-upload .image-label {
+    font-size: 10px;
+    padding: 7px 12px;
+  }
+  .brands-form .image-upload .image-preview {
+    width: 90px;
+    height: 90px;
+  }
+  .brands-form .image-upload .image-preview .remove-image-btn {
+    font-size: 9px;
+    padding: 4px 9px;
+    bottom: 6px;
+  }
+  .brands-form .image-upload .upload-error-tooltip {
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+  .brands-form .type-display .type-badge {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  .brands-form .type-display .type-hint {
+    font-size: 10px;
+  }
+  .brands-form .status-toggle {
+    gap: 8px;
+  }
+  .brands-form .status-toggle button {
+    font-size: 12px;
+    padding: 7px 10px;
+    min-width: 80px;
+  }
+  .brands-form .status-toggle button::before {
+    width: 14px;
+    height: 14px;
+  }
+  .brands-form .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 23px;
+  }
+  .brands-form .form-actions .btn-secondary,
+  .brands-form .form-actions .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+  .brands-form .form-actions .btn-primary .btn-loading {
+    min-width: auto;
+    min-height: 1em;
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 380px) {
+  .brands-form {
+    padding: 14px;
+  }
+  .brands-form form {
+    gap: 12px;
+  }
+  .brands-form .form-group {
+    gap: 5px;
+  }
+  .brands-form .form-group label {
+    font-size: 11px;
+  }
+  .brands-form .form-group label svg {
+    width: 12px;
+    height: 12px;
+  }
+  .brands-form .form-group label .required {
+    font-size: 13px;
+  }
+  .brands-form .form-group .form-input {
+    font-size: 11px;
+    padding: 7px;
+  }
+  .brands-form .form-group .field-hint {
+    font-size: 10px;
+  }
+  .brands-form .image-upload {
+    gap: 8px;
+  }
+  .brands-form .image-upload .image-label {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+  .brands-form .image-upload .image-preview {
+    width: 80px;
+    height: 80px;
+  }
+  .brands-form .image-upload .image-preview .remove-image-btn {
+    font-size: 8px;
+    padding: 3px 8px;
+    bottom: 5px;
+  }
+  .brands-form .image-upload .upload-error-tooltip {
+    font-size: 9px;
+    padding: 4px 7px;
+  }
+  .brands-form .image-upload .upload-error-tooltip svg {
+    width: 11px;
+    height: 11px;
+  }
+  .brands-form .type-display .type-badge {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  .brands-form .type-display .type-hint {
+    font-size: 9px;
+  }
+  .brands-form .status-toggle {
+    gap: 6px;
+  }
+  .brands-form .status-toggle button {
+    font-size: 11px;
+    padding: 6px 8px;
+    min-width: 70px;
+  }
+  .brands-form .status-toggle button::before {
+    width: 12px;
+    height: 12px;
+  }
+  .brands-form .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 23px;
+  }
+  .brands-form .form-actions .btn-secondary,
+  .brands-form .form-actions .btn-primary {
+    padding: 10px 20px;
+  }
+}/*# sourceMappingURL=BrandsForm.css.map */

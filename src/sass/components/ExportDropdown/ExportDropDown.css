@@ -1,0 +1,330 @@
+.export-dropdown {
+  font-family: "Barlow", sans-serif;
+  position: relative;
+  display: inline-block;
+}
+.export-dropdown .export-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #2d4c52, #1e3a40);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Barlow", sans-serif;
+  transition: all 0.3s ease;
+  justify-content: center;
+}
+.export-dropdown .export-button svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.export-dropdown .export-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1e3a40, #162a2e);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 15px rgba(30, 58, 64, 0.2);
+}
+.export-dropdown .export-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+.export-dropdown .export-button:focus-visible {
+  outline: 2px solid #f3994b;
+  outline-offset: 2px;
+}
+.export-dropdown .export-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+.export-dropdown .export-button[aria-expanded=true] {
+  background: linear-gradient(135deg, #1e3a40, #162a2e);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 15px rgba(30, 58, 64, 0.2);
+}
+.export-dropdown .export-button[aria-expanded=true] svg {
+  transform: rotate(180deg);
+}
+.export-dropdown .export-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  min-width: 160px;
+  overflow: hidden;
+  animation: slideDown 0.2s ease-out;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.export-dropdown .export-dropdown-menu .export-option {
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d4c52;
+  font-family: "Barlow", sans-serif;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+  position: relative;
+}
+.export-dropdown .export-dropdown-menu .export-option svg {
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.export-dropdown .export-dropdown-menu .export-option .option-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.export-dropdown .export-dropdown-menu .export-option:last-child {
+  border-bottom: none;
+}
+.export-dropdown .export-dropdown-menu .export-option:focus {
+  outline: none;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(1) svg {
+  color: #dc2626;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(1):hover:not(:disabled) {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #991b1b;
+  padding-left: 20px;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(1):hover:not(:disabled) svg {
+  color: #dc2626;
+  transform: scale(1.1);
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(1).keyboard-focused {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  border-left: 3px solid #dc2626;
+  padding-left: 17px;
+  color: #991b1b;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(1).keyboard-focused svg {
+  color: #dc2626;
+  transform: scale(1.1);
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(1):disabled {
+  background: #fef2f2;
+  color: #fca5a5;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(1):disabled svg {
+  color: #fca5a5;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(1):disabled .option-label {
+  color: #dc2626;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(2) svg {
+  color: #16a34a;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(2):hover:not(:disabled) {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #15803d;
+  padding-left: 20px;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(2):hover:not(:disabled) svg {
+  color: #16a34a;
+  transform: scale(1.1);
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(2).keyboard-focused {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  border-left: 3px solid #16a34a;
+  padding-left: 17px;
+  color: #15803d;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(2).keyboard-focused svg {
+  color: #16a34a;
+  transform: scale(1.1);
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(2):disabled {
+  background: #f0fdf4;
+  color: #86efac;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(2):disabled svg {
+  color: #86efac;
+}
+.export-dropdown .export-dropdown-menu .export-option:nth-child(2):disabled .option-label {
+  color: #16a34a;
+}
+.export-dropdown .export-dropdown-menu .export-option:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.export-dropdown .export-dropdown-menu .export-option:disabled .option-label {
+  font-weight: 600;
+}
+@media (max-width: 1440px) {
+  .export-dropdown .export-button {
+    padding: 12px 20px;
+    font-size: 14px;
+    gap: 7px;
+  }
+  .export-dropdown .export-dropdown-menu {
+    min-width: 150px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option {
+    padding: 11px 15px;
+    font-size: 13px;
+    gap: 9px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option svg {
+    width: 15px;
+    height: 15px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option:hover:not(:disabled) {
+    padding-left: 19px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option.keyboard-focused {
+    padding-left: 16px;
+  }
+}
+@media (max-width: 1280px) {
+  .export-dropdown .export-button {
+    padding: 12px 20px;
+    font-size: 14px;
+    gap: 7px;
+  }
+  .export-dropdown .export-dropdown-menu {
+    min-width: 145px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option {
+    padding: 10px 14px;
+    font-size: 13px;
+    gap: 8px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option svg {
+    width: 15px;
+    height: 15px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option:hover:not(:disabled) {
+    padding-left: 18px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option.keyboard-focused {
+    padding-left: 15px;
+  }
+}
+@media (max-width: 1024px) {
+  .export-dropdown .export-button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  .export-dropdown .export-dropdown-menu {
+    min-width: 135px;
+    border-radius: 8px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option {
+    padding: 10px 13px;
+    font-size: 12px;
+    gap: 8px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option svg {
+    width: 14px;
+    height: 14px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option:hover:not(:disabled) {
+    padding-left: 17px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option.keyboard-focused {
+    padding-left: 14px;
+  }
+}
+@media (max-width: 800px) {
+  .export-dropdown .export-button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  .export-dropdown .export-dropdown-menu {
+    min-width: 130px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option {
+    padding: 9px 12px;
+    font-size: 12px;
+    gap: 7px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option svg {
+    width: 14px;
+    height: 14px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option:hover:not(:disabled) {
+    padding-left: 16px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option.keyboard-focused {
+    padding-left: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .export-dropdown .export-button {
+    margin-right: 25px;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 13px;
+    gap: 7px;
+  }
+  .export-dropdown .export-dropdown-menu {
+    min-width: 120px;
+    top: calc(100% + 4px);
+  }
+  .export-dropdown .export-dropdown-menu .export-option {
+    padding: 8px 11px;
+    font-size: 11px;
+    gap: 6px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option svg {
+    width: 13px;
+    height: 13px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option:hover:not(:disabled) {
+    padding-left: 15px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option.keyboard-focused {
+    padding-left: 12px;
+  }
+}
+@media (max-width: 380px) {
+  .export-dropdown .export-button {
+    gap: 7px;
+  }
+  .export-dropdown .export-dropdown-menu {
+    min-width: 110px;
+    border-radius: 6px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option {
+    padding: 7px 10px;
+    font-size: 10px;
+    gap: 5px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option svg {
+    width: 12px;
+    height: 12px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option:hover:not(:disabled) {
+    padding-left: 14px;
+  }
+  .export-dropdown .export-dropdown-menu .export-option.keyboard-focused {
+    padding-left: 11px;
+    border-left-width: 2px;
+  }
+}/*# sourceMappingURL=ExportDropdown.css.map */

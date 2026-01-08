@@ -1,0 +1,10 @@
+.animated-number {
+  /* // Optional: pastikan rendering text halus */
+  text-rendering: optimizeLegibility;
+  /* // Tidak perlu font-feature-settings jika font sudah bagus */
+}
+
+/* // Class opsional untuk persen */
+.animated-number--percentage {
+  font-weight: 600;
+}/*# sourceMappingURL=AnimatedNumber.css.map */

@@ -1,0 +1,734 @@
+/* === Loading & Error States === */
+.visitors-loading,
+.visitors-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+
+    .btn-cls-error {
+        margin-top: 10px;
+        background: white;
+        color: #2d4c52;
+        border: 1px solid #d1d5db;
+        padding: 12px 24px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #f8fafc;
+            border-color: #9ca3af;
+        }
+    }
+}
+
+.visitors-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #e5e7eb;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.visitors-error p {
+    margin-bottom: 1rem;
+    color: #ef4444;
+}
+
+/* === Chart Toggle Section === */
+.visitors-chart-toggle-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.visitors-date-range-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-family: "Barlow", sans-serif;
+}
+
+.visitors-chart-toggle {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.visitors-chart-toggle button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    background: #e5e7eb;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: auto;
+}
+
+.visitors-chart-toggle button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.visitors-chart-toggle button:hover:not(.active) {
+    background: #d1d5db;
+}
+
+.visitors-chart-toggle button.active {
+    color: white;
+    background: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.visitors-chart-toggle button.active svg {
+    color: white;
+}
+
+/* === Sub Chart Toggle === */
+.visitors-sub-chart-toggle {
+    display: flex;
+    gap: 8px;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.visitors-sub-chart-toggle button {
+    padding: 0.4rem 0.8rem;
+    font-family: "Barlow", sans-serif;
+    font-size: 0.8125rem;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.visitors-sub-chart-toggle button:hover:not(.active) {
+    background: #e5e7eb;
+}
+
+.visitors-sub-chart-toggle button.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+/* === Chart Content === */
+.visitors-chart-content {
+    padding: 10px 24px;
+    min-height: 430px;
+
+    .visitors-no-data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+        color: #6b7280;
+        gap: 1rem;
+        font-family: "Poppins", sans-serif;
+
+        p {
+            margin: 0;
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .btn-cls-error {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: #dc2626;
+            }
+
+            &:focus {
+                outline: 2px solid #f87171;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+.visitors-chart-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.visitors-chart-header h3 {
+    font-size: 1.25rem;
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 0.5rem 0;
+}
+
+.visitors-chart-description {
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* === Chart Wrappers === */
+.visitors-line-chart-wrapper {
+    min-width: 300px;
+    padding: 20px 10px 0 6px;
+    margin-left: -30px;
+    margin-bottom: -25px;
+}
+
+.visitors-pie-chart-wrapper {
+    min-width: 300px;
+    padding: 20px 10px 0 6px;
+    margin-left: -30px;
+    margin-top: -30px;
+}
+
+.visitors-line-chart-wrapper .no-focus-outline svg,
+.visitors-pie-chart-wrapper .no-focus-outline svg {
+    outline: none;
+    user-select: none;
+}
+
+.visitors-pie-chart-wrapper .recharts-pie-sector {
+    outline: none !important;
+    stroke: none !important;
+}
+
+.visitors-pie-chart-wrapper .recharts-pie-sector:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.visitors-pie-chart-wrapper svg g.recharts-layer path {
+    &:focus {
+        outline: none !important;
+        stroke: none !important;
+    }
+}
+
+/* === Custom Tooltip === */
+.visitors-custom-tooltip {
+    background: white;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    font-size: 0.875rem;
+    font-family: "Barlow", sans-serif;
+}
+
+.visitors-tooltip-label {
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 0.25rem 0;
+}
+
+.visitors-tooltip-value {
+    color: #2d4c52;
+    margin: 0 0 0.25rem 0;
+    font-weight: 700;
+}
+
+.visitors-tooltip-percentage {
+    color: #6b7280;
+    margin: 0;
+}
+
+/* === Breakdown List === */
+
+.visitors-breakdown-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+}
+
+.visitors-breakdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.visitors-breakdown-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.visitors-breakdown-color-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    background-color: #3b82f6;
+}
+
+.visitors-breakdown-name {
+    font-weight: 500;
+    color: #1f2937;
+    flex: 1;
+}
+
+.visitors-breakdown-value {
+    color: #6b7280;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.visitors-breakdown-bar {
+    height: 6px;
+    background-color: #e5e7eb;
+    border-radius: 3px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.visitors-breakdown-bar-fill {
+    height: 100%;
+    background-color: #3b82f6;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.visitors-breakdown-percentage {
+    color: #6b7280;
+    font-size: 0.875rem;
+    width: 40px;
+    text-align: right;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Desktop Large */
+@media (max-width: 1440px) {
+    .visitors-chart-content {
+        padding: 1.25rem;
+    }
+
+    .visitors-chart-toggle button {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .visitors-breakdown-title {
+        font-size: 0.9375rem;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1280px) {
+    .visitors-chart-content {
+        padding: 1rem;
+    }
+
+    .visitors-chart-toggle button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8125rem;
+    }
+
+    .visitors-breakdown-item {
+        gap: 10px;
+    }
+
+    .visitors-breakdown-info {
+        gap: 10px;
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+    .visitors-chart-content {
+        padding: 1rem;
+    }
+
+    .visitors-chart-header h3 {
+        font-size: 1.125rem;
+    }
+
+    .visitors-chart-description {
+        font-size: 0.8125rem;
+    }
+
+    .visitors-breakdown-title {
+        font-size: 0.9375rem;
+    }
+
+    .visitors-breakdown-name {
+        font-size: 0.875rem;
+    }
+
+    .visitors-breakdown-percentage {
+        font-size: 0.8125rem;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 800px) {
+    .visitors-chart-content {
+        padding: 1rem;
+    }
+
+    .visitors-chart-toggle {
+        gap: 6px;
+    }
+
+    .visitors-chart-toggle button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .visitors-sub-chart-toggle button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .visitors-breakdown-item {
+        gap: 8px;
+        padding: 0.5rem 0;
+    }
+
+    .visitors-breakdown-info {
+        gap: 8px;
+    }
+
+    .visitors-breakdown-name {
+        font-size: 0.8125rem;
+    }
+
+    .visitors-breakdown-value {
+        font-size: 0.75rem;
+    }
+
+    .visitors-breakdown-percentage {
+        font-size: 0.75rem;
+        width: 35px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .visitors-line-chart-wrapper {
+        min-width: 300px;
+        padding: 25px 6px 0 4px;
+        margin-left: -30px;
+    }
+
+    .visitors-pie-chart-wrapper {
+        padding: 10px 0 0 4px;
+        margin-left: -15px;
+    }
+    .visitors-chart-toggle-section {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .visitors-date-range-label {
+        margin-left: 0;
+        margin-top: 12px;
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    .visitors-chart-toggle {
+        justify-content: center;
+    }
+
+    .visitors-chart-toggle button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .visitors-sub-chart-toggle {
+        justify-content: center;
+    }
+
+    .visitors-sub-chart-toggle button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .visitors-chart-header h3 {
+        font-size: 1rem;
+    }
+
+    .visitors-chart-description {
+        font-size: 0.75rem;
+    }
+
+    .visitors-breakdown-list h4 {
+        font-size: 0.875rem;
+    }
+
+    .visitors-breakdown-item {
+        gap: 6px;
+        padding: 0.4rem 0;
+    }
+
+    .visitors-breakdown-info {
+        gap: 6px;
+    }
+
+    .visitors-breakdown-name {
+        font-size: 0.75rem;
+    }
+
+    .visitors-breakdown-value {
+        font-size: 0.7rem;
+    }
+
+    .visitors-breakdown-percentage {
+        font-size: 0.7rem;
+        width: 30px;
+    }
+
+    .visitors-custom-tooltip {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+    .visitors-line-chart-wrapper,
+    .visitors-pie-chart-wrapper {
+        padding: 25px 6px 0 4px;
+    }
+
+    .visitors-chart-toggle button {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.65rem;
+    }
+
+    .visitors-sub-chart-toggle button {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.65rem;
+    }
+
+    .visitors-breakdown-percentage {
+        width: 25px;
+        font-size: 0.65rem;
+    }
+
+    .visitors-custom-tooltip {
+        padding: 0.4rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* === No Data per Tab (New) === */
+.visitors-no-data-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    color: #6b7280;
+
+    .visitors-no-data-icon {
+        margin-bottom: 16px;
+        opacity: 0.6;
+        color: #9ca3af;
+        svg {
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    .visitors-no-data-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #374151;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .visitors-no-data-description {
+        font-size: 14px;
+        color: #4b5563;
+        margin-bottom: 12px;
+        max-width: 400px;
+        line-height: 1.5;
+        font-family: "Barlow", sans-serif;
+    }
+
+    .visitors-no-data-suggestion {
+        font-size: 14px;
+        color: #6b7280;
+        max-width: 400px;
+        line-height: 1.5;
+        font-style: italic;
+        font-family: "Barlow", sans-serif;
+    }
+}
+
+/* === RESPONSIVE ADJUSTMENTS FOR NEW NO-DATA COMPONENT === */
+
+/* Desktop Large */
+@media (max-width: 1440px) {
+    .visitors-no-data-tab {
+        padding: 32px 16px;
+
+        .visitors-no-data-title {
+            font-size: 17px;
+        }
+
+        .visitors-no-data-description,
+        .visitors-no-data-suggestion {
+            font-size: 13px;
+        }
+    }
+}
+
+/* Desktop */
+@media (max-width: 1280px) {
+    .visitors-no-data-tab {
+        padding: 28px 14px;
+
+        .visitors-no-data-title {
+            font-size: 16px;
+        }
+
+        .visitors-no-data-description,
+        .visitors-no-data-suggestion {
+            font-size: 12px;
+        }
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+    .visitors-no-data-tab {
+        padding: 24px 12px;
+
+        .visitors-no-data-icon svg {
+            width: 44px;
+            height: 44px;
+        }
+
+        .visitors-no-data-title {
+            font-size: 15px;
+        }
+
+        .visitors-no-data-description,
+        .visitors-no-data-suggestion {
+            font-size: 12px;
+        }
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 800px) {
+    .visitors-no-data-tab {
+        padding: 20px 10px;
+
+        .visitors-no-data-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .visitors-no-data-title {
+            font-size: 14px;
+        }
+
+        .visitors-no-data-description,
+        .visitors-no-data-suggestion {
+            font-size: 11px;
+        }
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .visitors-no-data-tab {
+        padding: 16px 8px;
+
+        .visitors-no-data-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .visitors-no-data-title {
+            font-size: 13px;
+        }
+
+        .visitors-no-data-description,
+        .visitors-no-data-suggestion {
+            font-size: 10px;
+        }
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+    .visitors-no-data-tab {
+        padding: 12px 6px;
+
+        .visitors-no-data-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .visitors-no-data-title {
+            font-size: 12px;
+        }
+
+        .visitors-no-data-description,
+        .visitors-no-data-suggestion {
+            font-size: 9px;
+        }
+    }
+}

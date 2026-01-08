@@ -1,0 +1,1264 @@
+.login-container {
+    /* Refined Background dengan Elegant Wave Effect - sesuai dengan media query pattern */
+    background: 
+        /* Glass Elements - konsisten dengan style media query */
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 60% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.07) 0%, transparent 38%),
+        /* Wave Layers dengan efek yang lebih halus */
+            radial-gradient(ellipse 140% 90% at 25% 65%, rgba(45, 76, 82, 0.18) 0%, transparent 50%),
+        radial-gradient(ellipse 120% 80% at 75% 35%, rgba(58, 94, 102, 0.15) 0%, transparent 45%),
+        radial-gradient(ellipse 100% 70% at 50% 85%, rgba(35, 63, 69, 0.12) 0%, transparent 40%),
+        /* Main Gradient dengan wave flow yang konsisten */
+            linear-gradient(
+                135deg,
+                #2d4c52 0%,
+                #35565d 15%,
+                #3a5e66 25%,
+                #2d4c52 35%,
+                #466f77 50%,
+                #2d4c52 65%,
+                #35565d 75%,
+                #3f636b 85%,
+                #2d4c52 100%
+            );
+
+    background-repeat: no-repeat;
+    background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        220% 220%;
+    animation: elegantWaveFlow 15s ease-in-out infinite;
+    position: relative;
+
+    /* Wave Layer dengan animasi yang lebih smooth */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            /* Floating Wave Patterns - lebih sederhana dan elegan */
+            radial-gradient(circle at 15% 45%, rgba(255, 255, 255, 0.1) 0%, transparent 35%),
+            radial-gradient(circle at 85% 55%, rgba(255, 255, 255, 0.08) 0%, transparent 30%),
+            radial-gradient(circle at 45% 25%, rgba(255, 255, 255, 0.06) 0%, transparent 25%),
+            radial-gradient(circle at 55% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 28%);
+        background-repeat: no-repeat;
+        animation: gentleFloat 15s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* Simplified Wave Particles */
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            /* Subtle moving particles */
+            radial-gradient(2px 2px at 25px 35px, rgba(255, 255, 255, 0.12), transparent),
+            radial-gradient(1px 1px at 45px 75px, rgba(255, 255, 255, 0.08), transparent),
+            radial-gradient(1px 1px at 95px 45px, rgba(255, 255, 255, 0.1), transparent),
+            radial-gradient(2px 2px at 135px 85px, rgba(255, 255, 255, 0.06), transparent),
+            radial-gradient(1px 1px at 165px 25px, rgba(255, 255, 255, 0.09), transparent);
+        background-size: 220px 120px;
+        animation: subtleParticleFloat 20s linear infinite;
+        opacity: 0.6;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Updated Wave Animation Keyframes - konsisten dengan media query style */
+@keyframes elegantWaveFlow {
+    0%,
+    100% {
+        background-position:
+            20% 30%,
+            80% 70%,
+            60% 20%,
+            30% 80%,
+            25% 65%,
+            75% 35%,
+            50% 85%,
+            0% 0%;
+    }
+    25% {
+        background-position:
+            30% 40%,
+            70% 60%,
+            70% 30%,
+            40% 70%,
+            35% 55%,
+            65% 45%,
+            40% 75%,
+            25% 25%;
+    }
+    50% {
+        background-position:
+            40% 50%,
+            60% 50%,
+            80% 40%,
+            50% 60%,
+            45% 45%,
+            55% 55%,
+            30% 65%,
+            50% 50%;
+    }
+    75% {
+        background-position:
+            30% 60%,
+            70% 40%,
+            50% 50%,
+            60% 50%,
+            55% 35%,
+            45% 65%,
+            60% 55%,
+            75% 75%;
+    }
+}
+
+@keyframes gentleFloat {
+    0%,
+    100% {
+        background-position:
+            15% 45%,
+            85% 55%,
+            45% 25%,
+            55% 75%;
+        opacity: 0.8;
+        transform: scale(1) rotate(0deg);
+    }
+    33% {
+        background-position:
+            25% 55%,
+            75% 45%,
+            55% 35%,
+            45% 65%;
+        opacity: 0.6;
+        transform: scale(1.02) rotate(1deg);
+    }
+    66% {
+        background-position:
+            35% 65%,
+            65% 35%,
+            65% 45%,
+            35% 55%;
+        opacity: 0.4;
+        transform: scale(0.98) rotate(-0.5deg);
+    }
+}
+
+@keyframes subtleParticleFloat {
+    0% {
+        background-position:
+            0px 0px,
+            45px 60px,
+            135px 280px,
+            75px 110px,
+            230px 35px;
+        opacity: 0.6;
+    }
+    25% {
+        background-position:
+            55px -5px,
+            100px 55px,
+            190px 275px,
+            130px 105px,
+            285px 30px;
+        opacity: 0.4;
+    }
+    50% {
+        background-position:
+            110px -10px,
+            155px 50px,
+            245px 270px,
+            185px 100px,
+            340px 25px;
+        opacity: 0.7;
+    }
+    75% {
+        background-position:
+            165px -5px,
+            210px 45px,
+            300px 265px,
+            240px 95px,
+            395px 20px;
+        opacity: 0.3;
+    }
+    100% {
+        background-position:
+            220px 0px,
+            265px 40px,
+            355px 260px,
+            295px 90px,
+            450px 15px;
+        opacity: 0.6;
+    }
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: "Barlow", sans-serif;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow:
+        0 25px 45px rgba(45, 76, 82, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+
+    &.login-card--loading {
+        background: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+        border: none;
+
+        .initial-loader {
+            background: white;
+            border: 2px solid #f3994b;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            .logo {
+                width: 60px;
+            }
+
+            .loader-main__svg {
+                width: 7em;
+                height: 7em;
+
+                @media (max-width: 768px) {
+                    max-width: 100px;
+                }
+
+                @media (max-width: 480px) {
+                    max-width: 80px;
+                }
+            }
+
+            .initial-loader-text {
+                font-size: 16px;
+                color: #2d4c52;
+                margin: 0;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+                text-align: center;
+
+                @media (max-width: 768px) {
+                    font-size: 14px;
+                }
+
+                @media (max-width: 480px) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.9) inset !important;
+        box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.9) inset !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+
+    .logo-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+
+        .logo {
+            width: 60px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(45, 76, 82, 0.2));
+        }
+    }
+
+    h2 {
+        font-size: 22px;
+        color: #2d4c52;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 5px;
+
+        .highlight {
+            color: #f3994b;
+        }
+    }
+
+    h3 {
+        font-size: 18px;
+        color: #2d4c52;
+        text-align: center;
+    }
+
+    .sub-text {
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .section-input {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        font-family: "Barlow", sans-serif;
+
+        .label-input {
+            font-size: 15px;
+            color: #2d4c52;
+            font-weight: 700;
+        }
+
+        input,
+        .input {
+            width: 100%;
+            height: 45px;
+            margin-top: 3px;
+            padding: 0 10px;
+            border: 1px solid rgba(45, 76, 82, 0.7);
+            border-radius: 8px;
+            font-family: "Poppins", sans-serif;
+            color: #4a5d63;
+            font-size: 15px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+
+            &:focus {
+                outline: none;
+                border-color: rgba(45, 76, 82, 0.6);
+                background: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 0 0 3px rgba(45, 76, 82, 0.1);
+            }
+
+            &::placeholder {
+                color: #6b7280;
+                font-weight: 500;
+            }
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active {
+                -webkit-text-fill-color: #4a5d63 !important;
+                caret-color: #4a5d63;
+
+                /* // trik agar background autofill tidak kuning */
+                transition: background-color 9999s ease-in-out 0s;
+            }
+        }
+
+        .section-input-password {
+            display: flex;
+            flex-direction: column;
+
+            .input-password {
+                position: relative;
+                display: inline-block;
+
+                input {
+                    padding-right: 30px;
+                    box-sizing: border-box;
+                }
+
+                span {
+                    position: absolute;
+                    top: 43%;
+                    right: 10px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    user-select: none;
+                    background: transparent;
+
+                    -webkit-tap-highlight-color: transparent;
+
+                    &:focus,
+                    &:active {
+                        outline: none;
+                        box-shadow: none;
+                        background: transparent;
+                    }
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        color: #f3994b;
+
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+
+        .forgot-password {
+            width: fit-content;
+            padding: 0;
+            margin-top: -6px;
+            font-size: 14px;
+            font-family: "Poppins", sans-serif;
+            color: #f3994b;
+            text-decoration: none;
+
+            &:hover {
+                color: #d95d39;
+            }
+        }
+    }
+
+    /* ENHANCED: Enhanced Login Button dengan Loading Animation */
+    .login-button {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin: 30px auto 0 auto;
+        background: linear-gradient(135deg, #f3994b, #e6863f);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        width: 100%;
+        max-width: 200px;
+        height: 45px;
+        box-shadow: 0 8px 20px rgba(243, 153, 75, 0.3);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+
+        /* Normal state hover */
+        &:hover:not(.loading) {
+            background: linear-gradient(135deg, #e6863f, #d95d39);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(243, 153, 75, 0.4);
+        }
+
+        &:active:not(.loading) {
+            transform: translateY(0);
+        }
+
+        /* Loading state styles */
+        &.loading {
+            background: linear-gradient(135deg, #d4852f, #c87337);
+            cursor: not-allowed;
+            transform: scale(0.98);
+            box-shadow: 0 4px 15px rgba(243, 153, 75, 0.2);
+        }
+
+        .login-button-loading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+    }
+
+    /* Text transition animations */
+    @keyframes textFadeOut {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+    }
+
+    @keyframes textFadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .auth-text {
+        font-size: 13px;
+        margin-top: 20px;
+        margin-bottom: 0;
+        text-align: center;
+        text-decoration: none;
+
+        span {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #2d4c52;
+
+            &:hover {
+                color: #4a7078;
+            }
+        }
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeOutUp {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+    }
+
+    .alert-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 9999;
+        pointer-events: none;
+    }
+
+    .alert {
+        background: rgba(254, 243, 242, 0.9);
+        backdrop-filter: blur(15px);
+        color: red;
+        font-size: 13px;
+        font-family: "Poppins", sans-serif;
+        padding: 3px 10px;
+        margin-top: 8px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(244, 67, 54, 0.3);
+        width: fit-content;
+        height: 50px;
+        text-align: center;
+        pointer-events: auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        transition: opacity 0.5s ease-in-out;
+
+        &.error {
+            border: 1px solid rgba(244, 67, 54, 0.4);
+        }
+
+        &.fade-out {
+            opacity: 0;
+        }
+    }
+
+    .alert.success {
+        background: rgba(240, 249, 255, 0.9);
+        color: #0891b2;
+        border: 1px solid rgba(8, 145, 178, 0.3);
+    }
+}
+
+/* Media Queries dengan Wave Animation dan Responsive Design */
+
+@media (max-width: 1440px) {
+    .login-container {
+        background: 
+            /* Floating Glass Elements */
+            radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+            radial-gradient(circle at 75% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 35%),
+            /* Elegant Wave Layer */
+                radial-gradient(ellipse 120% 80% at 30% 60%, rgba(45, 76, 82, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse 100% 60% at 70% 40%, rgba(58, 94, 102, 0.12) 0%, transparent 45%),
+            /* Main gradient dengan wave effect */
+                linear-gradient(
+                    135deg,
+                    #2d4c52 0%,
+                    #35565d 15%,
+                    #3a5e66 25%,
+                    #2d4c52 35%,
+                    #466f77 50%,
+                    #2d4c52 65%,
+                    #35565d 75%,
+                    #3f636b 85%,
+                    #2d4c52 100%
+                );
+
+        background-repeat: no-repeat;
+        background-size:
+            100% 100%,
+            100% 100%,
+            100% 100%,
+            100% 100%,
+            200% 200%;
+        animation: elegantWaveFlow1440 15s ease-in-out infinite;
+
+        &::before {
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 35%);
+            animation: gentleFloat1440 15s ease-in-out infinite;
+        }
+
+        &::after {
+            opacity: 0.5;
+            animation: subtleParticles1440 20s linear infinite;
+        }
+    }
+
+    .login-card {
+        max-width: 380px;
+        padding: 28px;
+
+        .logo {
+            width: 50px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 16px;
+        }
+
+        .sub-text {
+            font-size: 14px;
+        }
+
+        .section-input {
+            gap: 6px;
+            .label-input {
+                font-size: 14px;
+            }
+
+            input {
+                font-size: 14px;
+                height: 42px;
+            }
+
+            .forgot-password {
+                font-size: 13px;
+            }
+        }
+
+        .login-button {
+            max-width: 180px;
+            height: 43px;
+            font-size: 14px;
+        }
+    }
+
+    @keyframes elegantWaveFlow1440 {
+        0%,
+        100% {
+            background-position:
+                25% 20%,
+                75% 80%,
+                30% 60%,
+                70% 40%,
+                0% 50%;
+        }
+        25% {
+            background-position:
+                35% 30%,
+                65% 70%,
+                40% 50%,
+                60% 50%,
+                25% 25%;
+        }
+        50% {
+            background-position:
+                45% 40%,
+                55% 60%,
+                50% 40%,
+                50% 60%,
+                50% 0%;
+        }
+        75% {
+            background-position:
+                35% 50%,
+                65% 50%,
+                40% 60%,
+                60% 40%,
+                75% 75%;
+        }
+    }
+
+    @keyframes gentleFloat1440 {
+        0%,
+        100% {
+            background-position:
+                20% 30%,
+                80% 70%;
+            opacity: 0.6;
+        }
+        50% {
+            background-position:
+                30% 40%,
+                70% 60%;
+            opacity: 0.8;
+        }
+    }
+
+    @keyframes subtleParticles1440 {
+        0% {
+            transform: translateX(0) translateY(0) scale(1);
+        }
+        50% {
+            transform: translateX(10px) translateY(-5px) scale(1.02);
+        }
+        100% {
+            transform: translateX(0) translateY(0) scale(1);
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .login-container {
+        background: 
+            /* Soft Glass Orbs */
+            radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 35%),
+            radial-gradient(circle at 70% 75%, rgba(255, 255, 255, 0.03) 0%, transparent 30%),
+            /* Wave Layers */ radial-gradient(ellipse 100% 70% at 40% 50%, rgba(45, 76, 82, 0.12) 0%, transparent 45%),
+            /* Main gradient dengan wave flow */
+                linear-gradient(
+                    135deg,
+                    #2d4c52 0%,
+                    #3a5e66 20%,
+                    #2d4c52 30%,
+                    #466f77 45%,
+                    #2d4c52 60%,
+                    #35565d 75%,
+                    #3f636b 85%,
+                    #2d4c52 100%
+                );
+
+        background-repeat: no-repeat;
+        background-size:
+            100% 100%,
+            100% 100%,
+            100% 100%,
+            180% 180%;
+        animation: smoothWaveFlow1280 15s ease-in-out infinite;
+
+        &::before {
+            background:
+                radial-gradient(circle at 15% 40%, rgba(255, 255, 255, 0.06) 0%, transparent 35%),
+                radial-gradient(circle at 85% 60%, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
+            animation: softFloat1280 15s ease-in-out infinite;
+        }
+
+        &::after {
+            opacity: 0.4;
+            animation: lightParticles1280 20s linear infinite;
+        }
+    }
+
+    .login-card {
+        max-width: 360px;
+        padding: 25px;
+
+        h2 {
+            font-size: 16px;
+        }
+
+        h3 {
+            font-size: 14px;
+        }
+
+        .sub-text {
+            font-size: 13px;
+        }
+
+        .section-input {
+            gap: 2px;
+            .label-input {
+                font-size: 13px;
+            }
+
+            input {
+                font-size: 13px;
+                height: 42px;
+            }
+
+            .forgot-password {
+                font-size: 12px;
+            }
+        }
+
+        .login-button {
+            max-width: 170px;
+            height: 42px;
+            font-size: 12px;
+        }
+    }
+
+    @keyframes smoothWaveFlow1280 {
+        0%,
+        100% {
+            background-position:
+                30% 25%,
+                70% 75%,
+                40% 50%,
+                0% 0%;
+        }
+        33% {
+            background-position:
+                40% 35%,
+                60% 65%,
+                50% 40%,
+                33% 33%;
+        }
+        66% {
+            background-position:
+                50% 45%,
+                50% 55%,
+                60% 30%,
+                66% 66%;
+        }
+    }
+
+    @keyframes softFloat1280 {
+        0%,
+        100% {
+            background-position:
+                15% 40%,
+                85% 60%;
+            opacity: 0.5;
+        }
+        50% {
+            background-position:
+                25% 50%,
+                75% 50%;
+            opacity: 0.7;
+        }
+    }
+
+    @keyframes lightParticles1280 {
+        0% {
+            transform: translateX(0) scale(1);
+        }
+        100% {
+            transform: translateX(20px) scale(1.01);
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .login-container {
+        background: 
+            /* Minimal Glass Effect */
+            radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.04) 0%, transparent 30%),
+            /* Gentle Wave */ radial-gradient(ellipse 80% 60% at 50% 50%, rgba(45, 76, 82, 0.1) 0%, transparent 40%),
+            /* Main gradient dengan wave movement */
+                linear-gradient(
+                    135deg,
+                    #2d4c52 0%,
+                    #3a5e66 25%,
+                    #2d4c52 40%,
+                    #466f77 55%,
+                    #2d4c52 70%,
+                    #3a5e66 85%,
+                    #2d4c52 100%
+                );
+
+        background-repeat: no-repeat;
+        background-size:
+            100% 100%,
+            100% 100%,
+            160% 160%;
+        animation: calmWaveFlow1024 15s ease-in-out infinite;
+
+        &::before {
+            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
+            animation: peacefulFloat1024 15s ease-in-out infinite;
+        }
+
+        &::after {
+            opacity: 0.3;
+            animation: minimalParticles1024 20s linear infinite;
+        }
+    }
+
+    .login-card {
+        max-width: 360px;
+    }
+
+    @keyframes calmWaveFlow1024 {
+        0%,
+        100% {
+            background-position:
+                35% 30%,
+                50% 50%,
+                0% 100%;
+        }
+        50% {
+            background-position:
+                45% 40%,
+                60% 40%,
+                100% 0%;
+        }
+    }
+
+    @keyframes peacefulFloat1024 {
+        0%,
+        100% {
+            background-position: 20% 50%;
+            opacity: 0.4;
+        }
+        50% {
+            background-position: 30% 60%;
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes minimalParticles1024 {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-10px);
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .login-container {
+        background: 
+            /* Simple Glass Accent */
+            radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.03) 0%, transparent 25%),
+            /* Subtle Wave */ radial-gradient(ellipse 70% 50% at 50% 45%, rgba(45, 76, 82, 0.08) 0%, transparent 35%),
+            /* Main gradient dengan gentle wave */
+                linear-gradient(135deg, #2d4c52 0%, #3a5e66 30%, #2d4c52 50%, #35565d 70%, #2d4c52 100%);
+
+        background-repeat: no-repeat;
+        background-size:
+            100% 100%,
+            100% 100%,
+            140% 140%;
+        animation: gentleWaveFlow800 15s ease-in-out infinite;
+        padding: 15px;
+
+        &::before {
+            background: radial-gradient(circle at 25% 55%, rgba(255, 255, 255, 0.04) 0%, transparent 25%);
+            animation: softDrift800 15s ease-in-out infinite;
+        }
+
+        &::after {
+            opacity: 0.2;
+            animation: delicateParticles800 20s linear infinite;
+        }
+    }
+
+    .login-card {
+        max-width: 360px;
+    }
+
+    @keyframes gentleWaveFlow800 {
+        0%,
+        100% {
+            background-position:
+                40% 35%,
+                50% 45%,
+                0% 0%;
+        }
+        50% {
+            background-position:
+                50% 45%,
+                60% 35%,
+                100% 100%;
+        }
+    }
+
+    @keyframes softDrift800 {
+        0%,
+        100% {
+            background-position: 25% 55%;
+            opacity: 0.3;
+        }
+        50% {
+            background-position: 35% 65%;
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes delicateParticles800 {
+        0% {
+            transform: scale(1);
+            opacity: 0.2;
+        }
+        50% {
+            transform: scale(1.01);
+            opacity: 0.3;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 0.2;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        .login-card {
+            max-width: 300px;
+            padding: 18px;
+            border-radius: 16px;
+
+            .logo {
+                width: 45px;
+                margin-bottom: -8px;
+            }
+
+            h2 {
+                font-size: 15px;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            .sub-text {
+                font-size: 12px;
+                margin-bottom: 25px;
+            }
+
+            .section-input {
+                .label-input {
+                    font-size: 12px;
+                }
+
+                input,
+                .input {
+                    height: 40px;
+                    font-size: 12px;
+                    padding: 0 8px;
+                }
+
+                .section-input-password {
+                    .input-password {
+                        span {
+                            right: 8px;
+
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+                }
+
+                .forgot-password {
+                    font-size: 11px;
+                }
+            }
+
+            .login-button {
+                max-width: 140px;
+                height: 36px;
+                font-size: 12px;
+                padding: 0.6rem 1rem;
+                border-radius: 10px;
+
+                &.loading {
+                    .login-button-spinner {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+
+            .alert {
+                font-size: 14px;
+                height: 45px;
+                padding: 2px 6px;
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .login-container {
+        background:
+            radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.015) 0%, transparent 15%),
+            radial-gradient(ellipse 50% 35% at 50% 55%, rgba(45, 76, 82, 0.04) 0%, transparent 25%),
+            linear-gradient(135deg, #2d4c52 0%, #35565d 50%, #2d4c52 100%);
+
+        background-repeat: no-repeat;
+        background-size:
+            100% 100%,
+            100% 100%,
+            110% 110%;
+        animation: whisperWaveFlow380 19s ease-in-out infinite;
+        padding: 8px;
+
+        &::before {
+            background: radial-gradient(circle at 35% 65%, rgba(255, 255, 255, 0.02) 0%, transparent 15%);
+            animation: breatheFloat380 10s ease-in-out infinite;
+        }
+
+        &::after {
+            opacity: 0.1;
+            animation: ghostParticles380 10s linear infinite;
+        }
+    }
+
+    .login-card {
+        max-width: 280px;
+        border-radius: 14px;
+
+        .logo {
+            margin-bottom: -8px;
+        }
+
+        h2 {
+            font-size: 12px;
+        }
+
+        h3 {
+            font-size: 11px;
+        }
+
+        .sub-text {
+            font-size: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section-input {
+            .section-input-password {
+                .input-password {
+                    input {
+                        padding-right: 26px;
+                    }
+
+                    span {
+                        right: 6px;
+
+                        svg {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+
+                .forgot-password {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+
+        .login-button {
+            max-width: 130px;
+            height: 34px;
+            font-size: 9px;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+
+            &.loading {
+                .login-button-spinner {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+
+        .alert {
+            font-size: 12px;
+            height: 40px;
+            padding: 2px 5px;
+            margin-top: 5px;
+        }
+    }
+
+    @keyframes whisperWaveFlow380 {
+        0%,
+        100% {
+            background-position:
+                50% 45%,
+                50% 55%,
+                0% 25%;
+        }
+        50% {
+            background-position:
+                60% 55%,
+                60% 45%,
+                100% 75%;
+        }
+    }
+
+    @keyframes breatheFloat380 {
+        0%,
+        100% {
+            background-position: 35% 65%;
+            opacity: 0.15;
+        }
+        50% {
+            background-position: 45% 75%;
+            opacity: 0.3;
+        }
+    }
+
+    @keyframes ghostParticles380 {
+        0% {
+            opacity: 0.1;
+        }
+        100% {
+            opacity: 0.2;
+        }
+    }
+}

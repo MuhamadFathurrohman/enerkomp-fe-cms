@@ -1,0 +1,377 @@
+@charset "UTF-8";
+.session-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* // ======================================================
+// BASE MODAL (Kondisi 1 & 2)
+// ====================================================== */
+.session-alert-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(45, 76, 82, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  padding: 28px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  font-family: "Barlow", sans-serif;
+  animation: scaleIn 0.2s ease-out;
+}
+
+/* // ======================================================
+// ✅ KONDISI 2: GRACE PERIOD EXPIRED (MODIFIER)
+// ====================================================== */
+.session-alert-modal--expired {
+  box-shadow: 0 15px 30px rgba(45, 76, 82, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* // ======================================================
+// ICON STYLES
+// ====================================================== */
+.session-alert-icon {
+  margin-bottom: 14px;
+  color: #f59e0b;
+}
+.session-alert-icon svg {
+  display: block;
+  margin: 0 auto;
+}
+
+/*  Warning Icon Style */
+.session-alert-icon--warning {
+  background-color: #fef2f2;
+  color: #f59e0b;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+}
+.session-alert-icon--warning svg {
+  margin: 0;
+}
+
+/* // ======================================================
+// TEXT STYLES
+// ====================================================== */
+.session-alert-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #2d4c52;
+  margin: 0 0 14px;
+  letter-spacing: 0.3px;
+}
+
+.session-alert-message {
+  font-size: 0.98rem;
+  color: #4a7078;
+  margin: 0 0 22px;
+  line-height: 1.55;
+  font-weight: 600;
+}
+.session-alert-message strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+/* // ======================================================
+// BUTTON CONTAINER
+// ====================================================== */
+.session-alert-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* // ======================================================
+// BUTTON BASE STYLES
+// ====================================================== */
+.session-alert-btn {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex: 1;
+  font-family: "Barlow", sans-serif;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 150px;
+}
+.session-alert-btn:focus {
+  outline: none;
+  outline-offset: 2px;
+}
+.session-alert-btn:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+.session-alert-btn .btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10px;
+}
+
+/* // ======================================================
+// PRIMARY BUTTON (Extend Session / Go to Login)
+// ====================================================== */
+.session-alert-btn--primary {
+  background: linear-gradient(135deg, #2d4c52, #1e3a40);
+  color: white;
+  box-shadow: 0 4px 8px rgba(45, 76, 82, 0.1);
+}
+.session-alert-btn--primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1e3a40, #162a2e);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(30, 58, 64, 0.2);
+}
+.session-alert-btn--primary:disabled {
+  transform: none;
+}
+.session-alert-btn--primary .btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10px;
+}
+
+/* // ======================================================
+// SECONDARY BUTTON (Go to Login - Kondisi 1)
+// ====================================================== */
+.session-alert-btn--secondary {
+  background: #f8fafc;
+  color: #334155;
+  border: 2px solid #e2e8f0;
+}
+.session-alert-btn--secondary:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #2d4c52;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+.session-alert-btn--secondary:disabled {
+  transform: none;
+}
+.session-alert-btn--secondary .btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10px;
+}
+
+/* // ======================================================
+// ✅ FULL WIDTH BUTTON (untuk 1 tombol di Kondisi 2)
+// ====================================================== */
+.session-alert-btn--full {
+  flex: 1;
+  width: 100%;
+  max-width: 280px;
+}
+.session-alert-btn--full .btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10px;
+}
+
+/* // ======================================================
+// RESPONSIVE DESIGN
+// ====================================================== */
+/* // Tablet & Small Desktop (max-width: 768px) */
+@media (max-width: 768px) {
+  .session-alert-modal {
+    max-width: 380px;
+    padding: 26px;
+  }
+  .session-alert-icon--warning {
+    width: 60px;
+    height: 60px;
+  }
+  .session-alert-icon--warning svg {
+    width: 30px;
+    height: 30px;
+  }
+  .session-alert-title {
+    font-size: 1.28rem;
+  }
+  .session-alert-message {
+    font-size: 0.95rem;
+  }
+}
+/* // Mobile Landscape & Small Tablet (max-width: 640px) */
+@media (max-width: 640px) {
+  .session-alert-modal {
+    max-width: 360px;
+    padding: 24px 20px;
+  }
+  .session-alert-icon--warning {
+    width: 56px;
+    height: 56px;
+  }
+  .session-alert-icon--warning svg {
+    width: 28px;
+    height: 28px;
+  }
+  .session-alert-title {
+    font-size: 1.22rem;
+    margin-bottom: 12px;
+  }
+  .session-alert-message {
+    font-size: 0.93rem;
+    margin-bottom: 20px;
+  }
+  .session-alert-actions {
+    gap: 12px;
+  }
+}
+/* // Mobile Portrait (max-width: 480px) */
+@media (max-width: 480px) {
+  .session-alert-modal {
+    padding: 22px 18px;
+    max-width: 340px;
+  }
+  .session-alert-icon--warning {
+    width: 52px;
+    height: 52px;
+  }
+  .session-alert-icon--warning svg {
+    width: 26px;
+    height: 26px;
+  }
+  .session-alert-title {
+    font-size: 1.16rem;
+  }
+  .session-alert-message {
+    font-size: 0.91rem;
+  }
+  .session-alert-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .session-alert-btn {
+    padding: 12px;
+    width: 100%;
+    min-width: auto;
+    max-width: 100%;
+  }
+  .session-alert-btn .btn-loading {
+    min-width: auto;
+    min-height: 1em;
+    width: 100%;
+    justify-content: center;
+  }
+  .session-alert-btn--full {
+    max-width: 100%;
+  }
+  .session-alert-btn--full .btn-loading {
+    min-width: auto;
+    min-height: 1em;
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* // Small Mobile (max-width: 380px) */
+@media (max-width: 380px) {
+  .session-alert-modal {
+    padding: 20px 16px;
+    max-width: 320px;
+  }
+  .session-alert-icon--warning {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  .session-alert-icon--warning svg {
+    width: 24px;
+    height: 24px;
+  }
+  .session-alert-title {
+    font-size: 1.12rem;
+    margin-bottom: 10px;
+  }
+  .session-alert-message {
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+  .session-alert-actions {
+    gap: 8px;
+  }
+  .session-alert-btn {
+    padding: 11px 14px;
+    font-size: 0.9rem;
+  }
+  .session-alert-btn .btn-loading {
+    min-height: 18px;
+  }
+}
+/* // Extra Small Mobile (max-width: 320px) */
+@media (max-width: 320px) {
+  .session-alert-modal {
+    padding: 18px 14px;
+    max-width: 290px;
+  }
+  .session-alert-icon--warning {
+    width: 44px;
+    height: 44px;
+  }
+  .session-alert-icon--warning svg {
+    width: 22px;
+    height: 22px;
+  }
+  .session-alert-title {
+    font-size: 1.08rem;
+  }
+  .session-alert-message {
+    font-size: 0.86rem;
+    margin-bottom: 16px;
+  }
+  .session-alert-btn {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+  }
+}
+/* // ======================================================
+// ANIMATIONS
+// ====================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=SessionExpired.css.map */

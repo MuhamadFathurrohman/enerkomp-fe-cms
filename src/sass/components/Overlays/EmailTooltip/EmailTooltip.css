@@ -1,0 +1,76 @@
+.email-tooltip-overlay {
+  position: fixed;
+  top: var(--tooltip-top, 0px);
+  right: var(--tooltip-right, 0px);
+  z-index: 10000;
+  pointer-events: none;
+}
+.email-tooltip-overlay .email-tooltip {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  animation: emailTooltipFadeIn 0.2s ease-out forwards;
+  position: absolute;
+  top: calc(var(--cursor-y, 0px) + 10px);
+  right: calc(var(--cursor-x, 0px) + 50px);
+  transform: translateX(0);
+}
+
+@keyframes emailTooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes emailTooltipFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateY(-5px);
+  }
+}
+/* ========== RESPONSIF ========== */
+@media (max-width: 1024px) {
+  .email-tooltip-overlay .email-tooltip {
+    font-size: 11px;
+    padding: 3px 7px;
+  }
+}
+@media (max-width: 800px) {
+  .email-tooltip-overlay .email-tooltip {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+@media (max-width: 480px) {
+  .email-tooltip-overlay .email-tooltip {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+}
+@media (max-width: 380px) {
+  .email-tooltip-overlay .email-tooltip {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+}
+@media (max-width: 320px) {
+  .email-tooltip-overlay .email-tooltip {
+    font-size: 7px;
+    padding: 1px 3px;
+  }
+}/*# sourceMappingURL=EmailTooltip.css.map */

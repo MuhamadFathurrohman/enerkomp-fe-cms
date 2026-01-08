@@ -1,0 +1,102 @@
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -460px 0;
+    }
+    100% {
+        background-position: 460px 0;
+    }
+}
+
+/* // Kelas dasar untuk shimmer effect (opsional, bisa dihapus jika hanya ingin elemen individual) */
+.skeleton-item {
+    contain: layout style paint;
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 460px 100%;
+    animation: shimmer 2s infinite ease-in-out;
+    border-radius: 4px;
+}
+
+/* // Elemen dasar untuk garis teks */
+.skeleton-line {
+    contain: layout style paint; /* Salin definisi shimmer */
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 460px 100%;
+    animation: shimmer 2s infinite ease-in-out;
+    border-radius: 4px; /* Salin border-radius */
+    height: 16px;
+    margin-bottom: 8px;
+
+    &--header {
+        width: 60%;
+        height: 20px;
+        margin-bottom: 12px;
+    }
+
+    &--value {
+        width: 50%;
+        height: 24px;
+    }
+
+    &--trend {
+        width: 45%;
+        height: 14px;
+    }
+
+    &--toggle {
+        width: 30px;
+        height: 16px;
+        margin: 0 2px;
+    }
+
+    &--subtitle {
+        width: 80%;
+        height: 12px;
+    }
+
+    &--short {
+        width: 30%;
+    }
+
+    &--medium {
+        width: 50%;
+    }
+
+    &--long {
+        width: 100%;
+    }
+}
+
+/* // Elemen dasar untuk lingkaran */
+.skeleton-circle {
+    contain: layout style paint; /* Salin definisi shimmer */
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 460px 100%;
+    animation: shimmer 2s infinite ease-in-out;
+    border-radius: 4px; /* Salin border-radius, lalu override */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Override border-radius untuk lingkaran */
+}
+
+/* // Elemen dasar untuk persegi panjang */
+.skeleton-rect {
+    contain: layout style paint; /* Salin definisi shimmer */
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 460px 100%;
+    animation: shimmer 2s infinite ease-in-out;
+    border-radius: 4px; /* Salin border-radius, lalu override */
+    height: 100px;
+    border-radius: 8px; /* Override border-radius untuk persegi panjang */
+}
+
+/* // Kelas untuk container shimmer dasar (jika diperlukan) */
+.skeleton-item-container {
+    contain: layout style paint; /* Salin definisi shimmer */
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 460px 100%;
+    animation: shimmer 2s infinite ease-in-out;
+    border-radius: 4px; /* Salin border-radius */
+    position: relative;
+    overflow: hidden;
+}

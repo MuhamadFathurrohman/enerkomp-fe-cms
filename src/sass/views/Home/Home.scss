@@ -1,0 +1,1475 @@
+/* src/sass/views/Home/Home.scss */
+.home-dashboard {
+    padding: 0;
+    font-family: "Barlow", sans-serif;
+
+    .home-dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+
+        .home-page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+    }
+
+    .home-error-banner {
+        background: #fee2e2;
+        border: 1px solid #fecaca;
+        color: #b91c1c;
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+    }
+    .home-retry-button {
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .home-retry-button:hover {
+        background: #dc2626;
+    }
+
+    /* ✅ WRAPPER BARU */
+    .home-dashboard-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    /* // === STAT ROW === */
+    .home-stats-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        height: 170px;
+
+        /* // Welcome Card (lebar penuh di mobile, 60% di desktop) */
+        .home-welcome-card {
+            flex: 1 1 50%;
+            min-width: 400px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 23px 20px;
+            box-shadow:
+                0 15px 30px rgba(45, 76, 82, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow:
+                    0 20px 40px rgba(45, 76, 82, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+
+            .home-welcome-text-wrapper {
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+
+                h2 {
+                    font-size: 23px;
+                    font-weight: 700;
+                    color: #2d4c52;
+                    letter-spacing: 0.5px;
+
+                    .home-highlight {
+                        display: inline;
+                        color: #f3994b;
+                        text-shadow: 0 1px 2px rgba(243, 153, 75, 0.3);
+                    }
+                }
+
+                .home-welcome-subtitle {
+                    font-size: 21px;
+                    color: #2d4c52;
+                    margin: 8px 0 0 0;
+                    font-weight: 600;
+                }
+
+                .home-company-name {
+                    font-size: 20px;
+                    color: #2d4c52;
+                    margin: 8px 0 0 0;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        /* // Stat Cards (dua card kecil) */
+        .home-stat-card {
+            flex: 1 1 25%;
+            max-width: 250px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow:
+                0 15px 30px rgba(45, 76, 82, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow:
+                    0 20px 40px rgba(45, 76, 82, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+
+            .home-card-content-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+
+                .home-stat-title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #2d4c52;
+                    margin: 0;
+                }
+
+                .home-stat-number-wrapper {
+                    position: absolute;
+                    top: 40%;
+
+                    .home-stat-number {
+                        font-size: 32px;
+                        font-weight: 700;
+                        margin-bottom: 25px;
+                        transition: all 0.3s ease;
+                    }
+
+                    .home-stat-icon {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        transition: all 0.3s ease;
+                        position: absolute;
+                        left: 155px;
+                        top: -1px;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+
+                    .home-stat-subtitle {
+                        font-size: 16px;
+                        color: #4a5d63;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            &.home-admin-card {
+                .home-stat-icon {
+                    background: linear-gradient(135deg, rgba(45, 76, 82, 0.1), rgba(45, 76, 82, 0.2));
+                    color: #2d4c52;
+                }
+
+                .home-stat-number {
+                    color: #2d4c52;
+                }
+
+                &:hover .home-stat-icon {
+                    background: linear-gradient(135deg, rgba(45, 76, 82, 0.15), rgba(45, 76, 82, 0.25));
+                    transform: scale(1.05);
+                }
+            }
+
+            &.home-client-card {
+                .home-stat-icon {
+                    background: linear-gradient(135deg, rgba(243, 153, 75, 0.1), rgba(243, 153, 75, 0.2));
+                    color: #f3994b;
+                }
+
+                .home-stat-number {
+                    color: #f3994b;
+                }
+
+                &:hover .home-stat-icon {
+                    background: linear-gradient(135deg, rgba(243, 153, 75, 0.15), rgba(243, 153, 75, 0.25));
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    /* // === CHARTS ROW === */
+    .home-charts-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        min-height: 350px;
+
+        .home-chart-card {
+            flex: 1 1 48%;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow:
+                0 15px 30px rgba(45, 76, 82, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow:
+                    0 20px 40px rgba(45, 76, 82, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+
+            .home-chart-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+
+                h3 {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #2d4c52;
+                    margin: 0;
+                }
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    color: #6b7280;
+                    opacity: 0.7;
+                }
+            }
+
+            .analytics-legend {
+                position: absolute;
+                top: 32px;
+                right: 35px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                padding: 8px 12px;
+                z-index: 10;
+
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    font-size: 11px;
+                    font-weight: 500;
+                    color: #6b7280;
+                }
+
+                .legend-color {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 2px;
+                    flex-shrink: 0;
+                }
+            }
+
+            .home-chart-content {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+
+                .home-analytics-chart-container {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+
+                    .home-chart-wrapper.line-chart {
+                        padding: 10px 10px 0 6px;
+                        width: 100%;
+                        min-width: 300px;
+                        height: 180px;
+                        min-height: 180px;
+                        display: block;
+                        margin-left: -35px;
+                        /* padding-right: 10px; */
+                    }
+
+                    .home-analytics-stats-horizontal {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        gap: 35px;
+
+                        .home-stat-item-horizontal {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 6px;
+
+                            .home-stat-value-large {
+                                font-size: 24px;
+                                font-weight: 600;
+                                color: #2d4c52;
+                                line-height: 1;
+                            }
+
+                            .home-stat-label {
+                                font-size: 12px;
+                                color: #6b7280;
+                                font-weight: 500;
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    .home-chart-empty {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100%;
+                        min-height: 220px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #6b7280;
+                        text-align: center;
+                        padding: 0 20px;
+                        opacity: 0.8;
+                        line-height: 1.4;
+                    }
+                }
+            }
+        }
+
+        .home-activity-card {
+            flex: 1 1 48%;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow:
+                0 15px 30px rgba(45, 76, 82, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow:
+                    0 20px 40px rgba(45, 76, 82, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+
+            .home-stat-content {
+                .home-stat-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 16px;
+                    padding-bottom: 12px;
+
+                    .home-stat-title {
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: #2d4c52;
+                        margin: 0;
+                    }
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        color: #6b7280;
+                        opacity: 0.7;
+                    }
+                }
+
+                .home-activity-list-container {
+                    margin-top: 8px;
+                    height: 210px;
+                    overflow-y: auto;
+                    padding-right: 8px;
+                    scroll-behavior: smooth;
+                    content-visibility: auto;
+                    contain-intrinsic-size: 250px;
+
+                    /* Hide scrollbar but keep scroll functionality */
+                    scrollbar-width: none; /* Firefox */
+                    -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+                    &::-webkit-scrollbar {
+                        display: none; /* WebKit */
+                    }
+                }
+
+                .home-activity-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+
+                .home-activity-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 12px;
+                    padding: 12px 16px;
+                    background: rgba(255, 255, 255, 0.7);
+                    border-radius: 12px;
+                    border: 1px solid rgba(45, 76, 82, 0.2);
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition:
+                        opacity 0.4s ease,
+                        transform 0.4s ease;
+
+                    &.animate-slide-in {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.85);
+                        transform: translateX(2px);
+                    }
+
+                    .home-activity-dot {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        background-color: #3b82f6;
+                        flex-shrink: 0;
+                    }
+
+                    .home-activity-main {
+                        flex: 1;
+
+                        .home-activity-text {
+                            font-size: 14px;
+                            color: #2d4c52;
+
+                            font-weight: 500;
+                            margin: 0 0 4px 0;
+
+                            strong {
+                                color: #3b82f6;
+                                font-weight: 600;
+                            }
+                        }
+
+                        .home-activity-meta {
+                            font-size: 12px;
+                            color: #6b7280;
+                            margin: 0;
+                        }
+                    }
+
+                    .home-activity-time {
+                        font-size: 13px;
+                        color: #6b7280;
+                        white-space: nowrap;
+                        font-weight: 500;
+                    }
+                }
+
+                .home-activity-empty {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 210px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #6b7280;
+                    text-align: center;
+                    padding: 0 20px;
+                    opacity: 0.8;
+                    line-height: 1.4;
+                }
+            }
+        }
+    }
+
+    /* --- SKELETON LOADING STYLES (ditambahkan di sini) --- */
+    .home-activity-list {
+        .skeleton-activity-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 460px 100%;
+            animation: shimmer 2s infinite ease-in-out;
+            border-radius: 12px;
+            border: 1px solid rgba(45, 76, 82, 0.1);
+
+            .skeleton-activity-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                flex-shrink: 0;
+                background: inherit;
+            }
+
+            .skeleton-activity-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                .skeleton-activity-line {
+                    height: 14px;
+                    width: 100%;
+                    margin-bottom: 2px;
+                    background: inherit;
+                    border-radius: 4px;
+
+                    &:last-child {
+                        width: 60%;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .skeleton-activity-time {
+                width: 40px;
+                height: 14px;
+                align-self: flex-start;
+                background: inherit;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+/* Desktop Large - 1440px */
+@media (max-width: 1440px) {
+    .home-dashboard {
+        .home-dashboard-content {
+            gap: 25px;
+        }
+
+        .home-stats-row {
+            gap: 20px;
+            max-height: 160px;
+
+            .home-welcome-card {
+                flex: 1 1 50%;
+                min-width: 500px;
+                min-height: 90px;
+                padding: 23px 18px;
+
+                .home-welcome-text-wrapper {
+                    padding: 8px;
+                    h2 {
+                        font-size: 20px;
+                    }
+
+                    .home-welcome-subtitle {
+                        font-size: 16px;
+                    }
+
+                    .home-company-name {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .home-stat-card {
+                flex: 1 1 25%;
+                max-width: 200px;
+                min-height: 90px;
+                padding: 18px;
+                gap: 14px;
+
+                .home-card-content-wrapper {
+                    .home-stat-title {
+                        font-size: 16px;
+                    }
+
+                    .home-stat-number-wrapper {
+                        top: 41%;
+
+                        .home-stat-number {
+                            font-size: 25px;
+                            margin-bottom: 30px;
+                        }
+
+                        .home-stat-icon {
+                            width: 38px;
+                            height: 38px;
+                            left: 125px;
+                            top: -3px;
+                        }
+
+                        .home-stat-subtitle {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .home-charts-row {
+            gap: 20px;
+            min-height: 350px;
+
+            .home-chart-card {
+                flex: 1 1 48%;
+                min-width: 280px;
+                padding: 20px;
+
+                .home-chart-header {
+                    h3 {
+                        font-size: 16px;
+                    }
+
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+
+                .analytics-legend {
+                    top: 29px;
+                    right: 25px;
+                }
+
+                .home-chart-content {
+                    .home-analytics-chart-container {
+                        gap: 30px;
+
+                        .home-chart-wrapper.line-chart {
+                            margin-left: -35px;
+                            /* padding-right: 8px; */
+                        }
+                    }
+
+                    .home-analytics-stats-horizontal {
+                        gap: 45px;
+
+                        .home-stat-item-horizontal {
+                            .home-stat-value-large {
+                                font-size: 22px;
+                            }
+
+                            .home-stat-label {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .home-activity-card {
+                .home-stat-content {
+                    .home-stat-header {
+                        .home-stat-title {
+                            font-size: 16px;
+                        }
+
+                        svg {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* // --- SKELETON LOADING STYLES untuk 1440px --- */
+        .home-activity-list {
+            .skeleton-activity-container {
+                padding: 10px 14px;
+                gap: 10px;
+
+                .skeleton-activity-line {
+                    height: 13px;
+                }
+
+                .skeleton-activity-time {
+                    width: 35px;
+                    height: 13px;
+                }
+            }
+        }
+        /* // --- AKHIR SKELETON LOADING STYLES untuk 1440px --- */
+    }
+}
+
+/* Desktop Medium - 1280px */
+@media (max-width: 1280px) {
+    .home-dashboard {
+        .home-dashboard-content {
+            gap: 20px;
+        }
+
+        .home-stats-row {
+            gap: 20px;
+
+            .home-welcome-card {
+                flex: 1 1 50%;
+                min-width: 400px;
+                min-height: 80px;
+                padding: 25px 16px;
+
+                .home-welcome-text-wrapper {
+                    h2 {
+                        font-size: 18px;
+                    }
+
+                    .home-welcome-subtitle {
+                        font-size: 16px;
+                    }
+
+                    .home-company-name {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .home-stat-card {
+                flex: 1 1 25%;
+                max-width: 170px;
+                min-height: 80px;
+                padding: 16px;
+                gap: 12px;
+
+                .home-card-content-wrapper {
+                    .home-stat-title {
+                        font-size: 14px;
+                    }
+
+                    .home-stat-number-wrapper {
+                        .home-stat-number {
+                            font-size: 25px;
+                        }
+
+                        .home-stat-icon {
+                            width: 36px;
+                            height: 36px;
+                            left: 100px;
+                            top: -5px;
+                        }
+
+                        .home-stat-subtitle {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .home-charts-row {
+            gap: 20px;
+            min-height: 350px;
+
+            .home-chart-card {
+                flex: 1 1 48%;
+                min-width: 260px;
+                padding: 18px;
+
+                .home-chart-header {
+                    h3 {
+                        font-size: 14px;
+                    }
+
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+
+                .analytics-legend {
+                    top: 28px;
+                }
+
+                .home-chart-content {
+                    .home-analytics-chart-container {
+                        gap: 35px;
+
+                        .home-chart-wrapper.line-chart {
+                            margin-left: -35px;
+                            /* padding-right: 4px; */
+                        }
+                    }
+
+                    .home-analytics-stats-horizontal {
+                        gap: 45px;
+
+                        .home-stat-item-horizontal {
+                            .home-stat-value-large {
+                                font-size: 20px;
+                            }
+
+                            .home-stat-label {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .home-activity-card {
+                .home-stat-content {
+                    .home-stat-header {
+                        .home-stat-title {
+                            font-size: 14px;
+                        }
+
+                        svg {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* // --- SKELETON LOADING STYLES untuk 1280px --- */
+        .home-activity-list {
+            .skeleton-activity-container {
+                padding: 10px 14px;
+                gap: 10px;
+
+                .skeleton-activity-line {
+                    height: 13px;
+                }
+
+                .skeleton-activity-time {
+                    width: 35px;
+                    height: 13px;
+                }
+            }
+        }
+        /* // --- AKHIR SKELETON LOADING STYLES untuk 1280px --- */
+    }
+}
+
+/* Large Tablet - 1024px */
+@media (max-width: 1024px) {
+    .home-dashboard {
+        .home-dashboard-content {
+            gap: 20px;
+        }
+
+        .home-stats-row {
+            flex-direction: column;
+            gap: 16px;
+            .home-welcome-card {
+                flex: 1 1 100%;
+                max-width: 550px;
+                min-height: 80px;
+                padding: 30px 16px;
+
+                .home-welcome-text-wrapper {
+                    h2 {
+                        font-size: 16px;
+                    }
+
+                    .home-welcome-subtitle {
+                        font-size: 14px;
+                    }
+
+                    .home-company-name {
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            .home-stat-card {
+                flex: 1 1 100%;
+                max-width: 190px;
+                min-height: 80px;
+                padding: 14px;
+                gap: 10px;
+
+                .home-card-content-wrapper {
+                    .home-stat-title {
+                        font-size: 13px;
+                    }
+
+                    .home-stat-number-wrapper {
+                        .home-stat-number {
+                            font-size: 25px;
+                        }
+
+                        .home-stat-icon {
+                            width: 36px;
+                            height: 36px;
+                            left: 120px;
+                            top: -5px;
+
+                            @media (max-width: 920px) and (min-width: 900px) {
+                                left: 80px;
+                            }
+                        }
+
+                        .home-stat-subtitle {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .home-charts-row {
+            gap: 20px;
+            min-height: 700px;
+
+            .home-chart-card {
+                flex: 1 1 100%;
+                min-width: 100%;
+                padding: 16px;
+
+                .home-chart-header h3 {
+                    font-size: 14px;
+                }
+
+                .analytics-legend {
+                    top: 28px;
+                    right: 25px;
+                    padding: 6px 10px;
+                    .legend-item {
+                        font-size: 10px;
+                    }
+                    .legend-color {
+                        width: 7px;
+                        height: 7px;
+                    }
+                }
+
+                .home-chart-content {
+                    .home-analytics-chart-container {
+                        gap: 35px;
+
+                        .home-chart-wrapper.line-chart {
+                            margin-left: -35px;
+                            padding-right: 6px;
+                        }
+                    }
+
+                    .home-analytics-stats-horizontal {
+                        gap: 45px;
+
+                        .home-stat-item-horizontal {
+                            .home-stat-value-large {
+                                font-size: 22px;
+                            }
+
+                            .home-stat-label {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .home-activity-card {
+                .home-stat-content {
+                    .home-activity-list-container {
+                        contain-intrinsic-size: 350px;
+                    }
+                }
+            }
+        }
+
+        /* // --- SKELETON LOADING STYLES untuk 1024px --- */
+        .home-activity-list {
+            .skeleton-activity-container {
+                padding: 10px 16px;
+                gap: 10px;
+
+                .skeleton-activity-line {
+                    height: 13px;
+                }
+
+                .skeleton-activity-time {
+                    width: 35px;
+                    height: 13px;
+                }
+            }
+        }
+        /* // --- AKHIR SKELETON LOADING STYLES untuk 1024px --- */
+    }
+}
+
+/* Medium Tablet - 800px */
+@media (max-width: 850px) {
+    .home-dashboard {
+        .home-dashboard-content {
+            gap: 14px;
+        }
+
+        .home-dashboard-header {
+            margin-bottom: 16px;
+
+            .home-page-title {
+                font-size: 28px;
+                letter-spacing: 1.5px;
+            }
+        }
+
+        .home-stats-row {
+            flex-direction: column;
+            gap: 14px;
+
+            .home-welcome-card {
+                flex: 1 1 100%;
+                max-width: 430px;
+                padding: 30px 16px;
+
+                .home-welcome-text-wrapper {
+                    padding: 6px;
+
+                    h2 {
+                        font-size: 16px;
+                    }
+
+                    .home-welcome-subtitle {
+                        font-size: 13px;
+                    }
+
+                    .home-company-name {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .home-stat-card {
+                flex: 1 1 100%;
+                min-width: 140px;
+                padding: 14px;
+                gap: 10px;
+
+                .home-card-content-wrapper {
+                    .home-stat-title {
+                        font-size: 13px;
+                    }
+
+                    .home-stat-number-wrapper {
+                        .home-stat-number {
+                            font-size: 22px;
+                        }
+                        .home-stat-icon {
+                            width: 34px;
+                            height: 34px;
+                            left: 80px;
+                        }
+
+                        .home-stat-subtitle {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .home-charts-row {
+            flex-direction: column;
+            gap: 14px;
+
+            .home-chart-card {
+                flex: 1 1 100%;
+                min-width: 100%;
+                min-height: 330px;
+                padding: 14px;
+
+                .home-chart-header h3 {
+                    font-size: 14px;
+                }
+
+                .analytics-legend {
+                    top: 26px;
+                }
+
+                .home-chart-content {
+                    .home-analytics-chart-container {
+                        gap: 45px;
+
+                        .home-chart-wrapper.line-chart {
+                            margin-left: -35px;
+                            padding-right: 4px;
+                        }
+                    }
+
+                    .home-analytics-stats-horizontal {
+                        gap: 45px;
+
+                        .home-stat-item-horizontal {
+                            .home-stat-value-large {
+                                font-size: 20px;
+                            }
+
+                            .home-stat-label {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* // --- SKELETON LOADING STYLES untuk 850px --- */
+        .home-activity-list {
+            .skeleton-activity-container {
+                padding: 10px 16px;
+                gap: 10px;
+
+                .skeleton-activity-line {
+                    height: 12px;
+                }
+
+                .skeleton-activity-time {
+                    width: 32px;
+                    height: 12px;
+                }
+            }
+        }
+        /* // --- AKHIR SKELETON LOADING STYLES untuk 850px --- */
+    }
+}
+
+/* Mobile Medium - 480px */
+@media (max-width: 480px) {
+    .home-dashboard {
+        .home-dashboard-content {
+            gap: 160px;
+        }
+
+        .home-dashboard-header {
+            .home-page-title {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+        }
+
+        .home-stats-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-columns: auto auto;
+            gap: 15px;
+            max-height: 140px;
+
+            .home-welcome-card {
+                grid-column: 1 / -1;
+                min-width: 100px;
+                min-height: 140px;
+                padding: 14px;
+
+                .home-welcome-text-wrapper {
+                    h2 {
+                        font-size: 14px;
+
+                        .home-highlight {
+                            display: block;
+                            margin-top: 8px;
+                        }
+                    }
+
+                    .home-welcome-subtitle {
+                        font-size: 13px;
+                    }
+
+                    .home-company-name {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .home-stat-card {
+                flex: 1 1 calc(50% - 6px);
+                min-width: 120px;
+                min-height: 130px;
+                padding: 14px;
+
+                .home-card-content-wrapper {
+                    .home-stat-title {
+                        font-size: 13px;
+                    }
+                    .home-stat-number-wrapper {
+                        top: 35%;
+                        .home-stat-number {
+                            font-size: 25px;
+                            margin-bottom: 20px;
+                        }
+                        .home-stat-icon {
+                            width: 35px;
+                            height: 35px;
+                            left: 110px;
+                            top: -3px;
+
+                            @media (min-width: 390px) and (max-width: 420px) {
+                                left: 90px;
+                            }
+                        }
+
+                        .home-stat-subtitle {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .home-charts-row {
+            gap: 15px;
+            flex-direction: column;
+            min-height: 300px;
+
+            .home-chart-card {
+                flex: 1 1 100%;
+                min-width: 100%;
+                padding: 14px;
+
+                .home-chart-header h3 {
+                    font-size: 13px;
+                }
+
+                .analytics-legend {
+                    top: 40px;
+                    right: 90px;
+                    padding: 6px 8px;
+                    flex-direction: row;
+                    .legend-item {
+                        font-size: 10px;
+                    }
+                    .legend-color {
+                        width: 7px;
+                        height: 7px;
+                    }
+                }
+
+                .home-chart-content {
+                    .home-analytics-chart-container {
+                        gap: 35px;
+
+                        .home-chart-wrapper.line-chart {
+                            margin-left: -37px;
+                            /* padding-right: 4px; */
+                        }
+
+                        .home-analytics-stats-horizontal {
+                            gap: 30px;
+
+                            .home-stat-item-horizontal {
+                                .home-stat-value-large {
+                                    font-size: 20px;
+                                }
+
+                                .home-stat-label {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .home-chart-empty,
+        .home-activity-empty {
+            font-size: 15px;
+            min-height: 120px;
+        }
+
+        /* // --- SKELETON LOADING STYLES untuk 480px --- */
+        .home-activity-list {
+            .skeleton-activity-container {
+                padding: 10px 12px;
+                gap: 8px;
+
+                .skeleton-activity-line {
+                    height: 12px;
+                }
+
+                .skeleton-activity-time {
+                    width: 30px;
+                    height: 12px;
+                }
+            }
+        }
+        /* // --- AKHIR SKELETON LOADING STYLES untuk 480px --- */
+    }
+}
+
+/* Mobile Small - 380px */
+@media (max-width: 380px) {
+    .home-dashboard {
+        .home-dashboard-content {
+            gap: 150px;
+        }
+
+        .home-dashboard-header {
+            .home-page-title {
+                font-size: 22px;
+                letter-spacing: 0.8px;
+            }
+        }
+
+        .home-stats-row {
+            gap: 10px;
+            margin-bottom: 0;
+
+            .home-welcome-card {
+                flex: 1 1 100%;
+                padding: 14px;
+
+                .home-welcome-text-wrapper {
+                    h2 {
+                        font-size: 14px;
+                    }
+
+                    .home-welcome-subtitle {
+                        font-size: 13px;
+                    }
+
+                    .home-company-name {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .home-stat-card {
+                flex: 1 1 100%;
+                padding: 14px;
+                gap: 6px;
+
+                .home-card-content-wrapper {
+                    .home-stat-title {
+                        font-size: 13px;
+                    }
+                    .home-stat-number-wrapper {
+                        .home-stat-number {
+                            font-size: 22px;
+                        }
+                        .home-stat-icon {
+                            width: 30px;
+                            height: 30px;
+                            left: 90px;
+                        }
+
+                        .home-stat-subtitle {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .home-charts-row {
+            gap: 10px;
+            margin-top: 0;
+
+            .home-chart-card {
+                flex: 1 1 100%;
+                min-width: 100%;
+                padding: 14px;
+
+                .home-chart-header h3 {
+                    font-size: 13px;
+                }
+
+                .analytics-legend {
+                    top: 40px;
+                    right: 70px;
+                    padding: 4px 6px;
+                    .legend-item {
+                        font-size: 9px;
+                    }
+                    .legend-color {
+                        width: 6px;
+                        height: 6px;
+                    }
+                }
+
+                .home-chart-content {
+                    .home-analytics-chart-container {
+                        gap: 30px;
+
+                        .home-chart-wrapper.line-chart {
+                            margin-left: -40px;
+                            padding-right: 4px;
+                        }
+
+                        .home-analytics-stats-horizontal {
+                            gap: 30px;
+
+                            .home-stat-item-horizontal {
+                                .home-stat-value-large {
+                                    font-size: 20px;
+                                }
+
+                                .home-stat-label {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* // --- SKELETON LOADING STYLES untuk 380px --- */
+        .home-activity-list {
+            .skeleton-activity-container {
+                padding: 8px 10px;
+                gap: 6px;
+
+                .skeleton-activity-line {
+                    height: 11px;
+                }
+
+                .skeleton-activity-time {
+                    width: 28px;
+                    height: 11px;
+                }
+            }
+        }
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

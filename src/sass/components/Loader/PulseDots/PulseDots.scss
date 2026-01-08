@@ -1,0 +1,39 @@
+.pulse-dots {
+    display: inline-flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.pulse-dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--pulse-color, currentColor);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+.pulse-dots--sm .pulse-dot {
+    width: 3px;
+    height: 3px;
+}
+.pulse-dots--md .pulse-dot {
+    width: 4px;
+    height: 4px;
+}
+.pulse-dots--lg .pulse-dot {
+    width: 6px;
+    height: 6px;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}

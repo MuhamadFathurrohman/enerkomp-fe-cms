@@ -1,0 +1,714 @@
+.tiptap-editor {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid rgba(45, 76, 82, 0.5);
+    transition: all 0.2s ease;
+    font-family: "Poppins", sans-serif;
+    overflow: visible;
+    position: relative;
+    --editor-text-color: #4a5d63;
+
+    &:hover {
+        border-color: #9ca3af;
+    }
+
+    &:focus-within {
+        border-color: #f3994b;
+        box-shadow: 0 0 0 3px rgba(243, 153, 75, 0.15);
+    }
+
+    /* ==================== DESKTOP TOOLBAR ==================== */
+    .tiptap-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 10px;
+        background: #f8fafc;
+        border-bottom: 1.5px solid #e2e8f0;
+        border-radius: 8px 8px 0 0;
+        flex-wrap: wrap;
+        overflow: visible !important;
+        position: relative;
+        z-index: 10;
+
+        .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .toolbar-divider {
+            width: 1px;
+            height: 24px;
+            background: #e2e8f0;
+            margin: 0 4px;
+        }
+
+        .toolbar-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            color: #1f2937;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: #e2e8f0;
+                color: #1e3a40;
+            }
+
+            &.active {
+                background: linear-gradient(135deg, #2d4c52, #1e3a40);
+                color: white;
+            }
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    /* ==================== MOBILE TOOLBAR WITH DROPDOWNS ==================== */
+    .tiptap-toolbar.mobile {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 10px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        position: relative;
+        z-index: 5;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    /* Custom Dropdown */
+    .custom-dropdown {
+        position: relative;
+        z-index: 10;
+    }
+
+    .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 12px;
+        border: 1px solid rgba(45, 76, 82, 0.15);
+        border-radius: 8px;
+        background: white;
+        color: #2d4c52;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        position: relative;
+        z-index: 11;
+
+        &:hover {
+            background: #e2e8f0;
+            color: #1e3a40;
+            border-color: rgba(45, 76, 82, 0.25);
+        }
+
+        &.has-active {
+            background: linear-gradient(135deg, #2d4c52, #1e3a40);
+            color: white;
+            border-color: #2d4c52;
+
+            &:hover {
+                background: linear-gradient(135deg, #1e3a40, #162a2e);
+            }
+
+            svg {
+                color: white;
+            }
+        }
+
+        .dropdown-label {
+            display: inline-block;
+        }
+
+        svg {
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+
+            &.rotate {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        min-width: 160px;
+        background: white;
+        border: 1px solid rgba(45, 76, 82, 0.15);
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(45, 76, 82, 0.15);
+        padding: 6px;
+        z-index: 9999 !important;
+        animation: dropdownFadeIn 0.2s ease;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    @keyframes dropdownFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        border-radius: 6px;
+        background: transparent;
+        color: #475569;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: #e2e8f0;
+            color: #1e3a40;
+        }
+
+        &.active {
+            background: linear-gradient(135deg, #2d4c52, #1e3a40);
+            color: white;
+            font-weight: 600;
+
+            &:hover {
+                background: linear-gradient(135deg, #1e3a40, #162a2e);
+            }
+
+            svg {
+                color: white;
+            }
+        }
+
+        svg {
+            flex-shrink: 0;
+        }
+    }
+
+    /* ==================== EDITOR WRAPPER ==================== */
+    .tiptap-editor-wrapper {
+        position: relative;
+        padding: 12px 16px;
+        min-height: 240px;
+        max-height: 240px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .tiptap-placeholder {
+        position: absolute;
+        top: 12px;
+        left: 16px;
+        color: #9ca3af;
+        pointer-events: none;
+        font-size: 14px;
+        line-height: 1.7;
+        font-weight: 400;
+        z-index: 1;
+    }
+
+    .tiptap-editor-content {
+        position: relative;
+        padding: 0;
+        z-index: 2;
+        min-height: 100%;
+
+        .ProseMirror {
+            min-height: 216px;
+            outline: none !important;
+            border: none !important;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--editor-text-color);
+            font-weight: 600;
+            box-shadow: none !important;
+
+            &:focus {
+                outline: none !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            &:focus-visible {
+                outline: none !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            &.ProseMirror-focused {
+                outline: none !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            > *:first-child {
+                margin-top: 0;
+            }
+
+            > *:last-child {
+                margin-bottom: 0;
+            }
+
+            h1 {
+                font-size: 20px;
+                font-weight: 700;
+                margin: 12px 0 8px 0;
+                line-height: 1.3;
+                color: #2d4c52;
+            }
+
+            h2 {
+                font-size: 18px;
+                font-weight: 600;
+                margin: 10px 0 6px 0;
+                line-height: 1.3;
+                color: #2d4c52;
+            }
+
+            h3 {
+                font-size: 16px;
+                font-weight: 600;
+                margin: 8px 0 6px 0;
+                line-height: 1.3;
+                color: #2d4c52;
+            }
+
+            p {
+                margin: 8px 0;
+                line-height: 1.7;
+            }
+
+            strong {
+                font-weight: 700;
+                color: inherit;
+            }
+
+            em {
+                font-style: italic;
+            }
+
+            u {
+                text-decoration: underline;
+            }
+
+            ol,
+            ul {
+                padding-left: 24px;
+                margin: 12px 0;
+
+                li {
+                    margin: 6px 0;
+                    line-height: 1.6;
+
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+
+            ol {
+                list-style-type: decimal;
+
+                li::marker {
+                    color: inherit;
+                    font-weight: 600;
+                }
+            }
+
+            ul {
+                list-style-type: disc;
+            }
+        }
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1440px) {
+        .tiptap-toolbar {
+            padding: 9px;
+
+            .toolbar-btn {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .tiptap-editor-wrapper {
+            min-height: 220px;
+            max-height: 220px;
+            padding: 11px 15px;
+        }
+
+        .tiptap-placeholder {
+            top: 11px;
+            left: 15px;
+            font-size: 13px;
+        }
+
+        .tiptap-editor-content {
+            .ProseMirror {
+                min-height: 198px;
+                font-size: 13px;
+
+                h1 {
+                    font-size: 19px;
+                }
+                h2 {
+                    font-size: 17px;
+                }
+                h3 {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1280px) {
+        .tiptap-toolbar {
+            padding: 8px;
+
+            .toolbar-btn {
+                width: 28px;
+                height: 28px;
+
+                svg {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+
+        .tiptap-editor-wrapper {
+            min-height: 220px;
+            max-height: 220px;
+            padding: 10px 14px;
+        }
+
+        .tiptap-placeholder {
+            top: 10px;
+            left: 14px;
+            font-size: 13px;
+        }
+
+        .tiptap-editor-content {
+            .ProseMirror {
+                min-height: 200px;
+                font-size: 13px;
+
+                h1 {
+                    font-size: 18px;
+                }
+                h2 {
+                    font-size: 16px;
+                }
+                h3 {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .tiptap-toolbar {
+            padding: 8px;
+
+            .toolbar-btn {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        .tiptap-editor-wrapper {
+            min-height: 220px;
+            max-height: 220px;
+            padding: 10px 13px;
+        }
+
+        .tiptap-placeholder {
+            top: 10px;
+            left: 13px;
+            font-size: 13px;
+        }
+
+        .tiptap-editor-content {
+            .ProseMirror {
+                min-height: 200px;
+                font-size: 13px;
+
+                h1 {
+                    font-size: 17px;
+                }
+                h2 {
+                    font-size: 16px;
+                }
+                h3 {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 800px) {
+        .tiptap-toolbar {
+            padding: 7px;
+            gap: 2px;
+
+            .toolbar-group {
+                gap: 2px;
+            }
+
+            .toolbar-btn {
+                width: 24px;
+                height: 24px;
+
+                svg {
+                    width: 13px;
+                    height: 13px;
+                }
+            }
+
+            .toolbar-divider {
+                margin: 0 2px;
+            }
+        }
+
+        .tiptap-editor-wrapper {
+            min-height: 220px;
+            max-height: 220px;
+            padding: 9px 12px;
+        }
+
+        .tiptap-placeholder {
+            top: 9px;
+            left: 12px;
+            font-size: 12px;
+        }
+
+        .tiptap-editor-content {
+            .ProseMirror {
+                min-height: 202px;
+                font-size: 12px;
+
+                h1 {
+                    font-size: 16px;
+                }
+                h2 {
+                    font-size: 15px;
+                }
+                h3 {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .tiptap-toolbar {
+            padding: 6px;
+
+            .toolbar-btn {
+                width: 36px;
+                height: 36px;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+
+        /* // Mobile dropdown styling - hide label text */
+        .dropdown-trigger {
+            padding: 8px;
+            min-width: 36px;
+            height: 36px;
+            justify-content: center;
+
+            .dropdown-label {
+                display: none;
+            }
+
+            svg:not(.rotate) {
+                margin-right: 0;
+            }
+
+            svg.rotate,
+            svg:last-child {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        .dropdown-menu {
+            min-width: 36px;
+        }
+
+        .dropdown-item {
+            padding: 8px 6px;
+            font-size: 13px;
+        }
+
+        .tiptap-editor-wrapper {
+            min-height: 250px;
+            max-height: 250px;
+            padding: 8px 12px;
+        }
+
+        .tiptap-placeholder {
+            top: 8px;
+            left: 12px;
+            font-size: 12px;
+        }
+
+        .tiptap-editor-content {
+            .ProseMirror {
+                min-height: 234px;
+                font-size: 12px;
+
+                h1 {
+                    font-size: 15px;
+                    margin: 10px 0 6px 0;
+                }
+                h2 {
+                    font-size: 14px;
+                    margin: 8px 0 5px 0;
+                }
+                h3 {
+                    font-size: 13px;
+                    margin: 6px 0 4px 0;
+                }
+
+                ol,
+                ul {
+                    padding-left: 20px;
+                    margin: 10px 0;
+
+                    li {
+                        margin: 4px 0;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 380px) {
+        .tiptap-toolbar {
+            padding: 5px;
+
+            .toolbar-btn {
+                width: 36px;
+                height: 36px;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            .toolbar-divider {
+                height: 20px;
+            }
+        }
+
+        /* // Already hidden in 480px, just ensure consistent sizing */
+        .dropdown-trigger {
+            padding: 7px;
+            min-width: 34px;
+            height: 34px;
+
+            .dropdown-label {
+                display: none;
+            }
+
+            svg.rotate,
+            svg:last-child {
+                width: 11px;
+                height: 11px;
+            }
+        }
+
+        .dropdown-menu {
+            min-width: 34px;
+        }
+
+        .dropdown-item {
+            padding: 7px 6px;
+            font-size: 12px;
+        }
+
+        .tiptap-editor-wrapper {
+            min-height: 230px;
+            max-height: 230px;
+            padding: 7px 10px;
+        }
+
+        .tiptap-placeholder {
+            top: 7px;
+            left: 10px;
+            font-size: 11px;
+        }
+
+        .tiptap-editor-content {
+            .ProseMirror {
+                min-height: 216px;
+                font-size: 11px;
+
+                h1 {
+                    font-size: 14px;
+                    margin: 8px 0 5px 0;
+                }
+                h2 {
+                    font-size: 13px;
+                    margin: 6px 0 4px 0;
+                }
+                h3 {
+                    font-size: 12px;
+                    margin: 6px 0 4px 0;
+                }
+
+                ol,
+                ul {
+                    padding-left: 16px;
+                    margin: 8px 0;
+                }
+            }
+        }
+    }
+}

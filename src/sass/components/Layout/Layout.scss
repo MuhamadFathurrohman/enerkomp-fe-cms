@@ -1,0 +1,583 @@
+.layout-container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background: 
+                /* Glass Elements - konsisten dengan style media query */
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 60% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.07) 0%, transparent 38%),
+        /* Wave Layers dengan efek yang lebih halus */
+            radial-gradient(ellipse 140% 90% at 25% 65%, rgba(45, 76, 82, 0.18) 0%, transparent 50%),
+        radial-gradient(ellipse 120% 80% at 75% 35%, rgba(58, 94, 102, 0.15) 0%, transparent 45%),
+        radial-gradient(ellipse 100% 70% at 50% 85%, rgba(35, 63, 69, 0.12) 0%, transparent 40%),
+        /* Main Gradient dengan wave flow yang konsisten */
+            linear-gradient(
+                135deg,
+                #2d4c52 0%,
+                #35565d 15%,
+                #3a5e66 25%,
+                #2d4c52 35%,
+                #466f77 50%,
+                #2d4c52 65%,
+                #35565d 75%,
+                #3f636b 85%,
+                #2d4c52 100%
+            );
+
+    background-repeat: no-repeat;
+    background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        220% 220%;
+    animation: elegantWaveFlow 15s ease-in-out infinite;
+
+    /* Wave Layer dengan animasi yang lebih smooth */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+                    /* Floating Wave Patterns - lebih sederhana dan elegan */
+            radial-gradient(circle at 15% 45%, rgba(255, 255, 255, 0.1) 0%, transparent 35%),
+            radial-gradient(circle at 85% 55%, rgba(255, 255, 255, 0.08) 0%, transparent 30%),
+            radial-gradient(circle at 45% 25%, rgba(255, 255, 255, 0.06) 0%, transparent 25%),
+            radial-gradient(circle at 55% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 28%);
+        background-repeat: no-repeat;
+        animation: gentleFloat 15s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* Simplified Wave Particles */
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+                    /* Subtle moving particles */
+            radial-gradient(2px 2px at 25px 35px, rgba(255, 255, 255, 0.12), transparent),
+            radial-gradient(1px 1px at 45px 75px, rgba(255, 255, 255, 0.08), transparent),
+            radial-gradient(1px 1px at 95px 45px, rgba(255, 255, 255, 0.1), transparent),
+            radial-gradient(2px 2px at 135px 85px, rgba(255, 255, 255, 0.06), transparent),
+            radial-gradient(1px 1px at 165px 25px, rgba(255, 255, 255, 0.09), transparent);
+        background-size: 220px 120px;
+        animation: subtleParticleFloat 20s linear infinite;
+        opacity: 0.6;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        position: relative;
+        z-index: 10;
+        transition: margin-left 0.3s ease;
+        margin-left: 281px;
+        margin-top: 20px;
+
+        &.sidebar-collapsed {
+            margin-left: 81px;
+        }
+
+        .page-content {
+            flex: 1;
+            padding: 40px;
+
+            .content-wrapper {
+                min-height: calc(100vh - 80px);
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+/* Ultra Large devices (max-width: 1920px) */
+@media (max-width: 1920px) {
+    .layout-container {
+        .main-content {
+            margin-left: 281px;
+            margin-top: 10px;
+
+            &.sidebar-collapsed {
+                margin-left: 81px;
+            }
+
+            .page-content {
+                padding: 20px;
+
+                overflow-y: auto;
+
+                /* Hide scrollbar but keep scroll functionality */
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+                &::-webkit-scrollbar {
+                    display: none; /* WebKit */
+                }
+
+                .content-wrapper {
+                    margin: 20px auto;
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
+}
+
+/* Extra Large devices (max-width: 1440px) */
+@media (max-width: 1440px) {
+    .layout-container {
+        .main-content {
+            margin-left: 280px;
+            margin-top: 10px;
+
+            &.sidebar-collapsed {
+                margin-left: 80px;
+            }
+
+            .page-content {
+                padding: 20px;
+
+                overflow-y: auto;
+
+                /* Hide scrollbar but keep scroll functionality */
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+                &::-webkit-scrollbar {
+                    display: none; /* WebKit */
+                }
+
+                .content-wrapper {
+                    margin: 20px auto;
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
+}
+
+/* Large devices (max-width: 1280px) */
+@media (max-width: 1280px) {
+    .layout-container {
+        .main-content {
+            margin-left: 285px;
+            margin-top: 8px;
+
+            &.sidebar-collapsed {
+                margin-left: 85px;
+            }
+
+            .page-content {
+                padding: 15px;
+                overflow-y: auto;
+
+                /* Hide scrollbar but keep scroll functionality */
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+                &::-webkit-scrollbar {
+                    display: none; /* WebKit */
+                }
+
+                .content-wrapper {
+                    margin: 15px auto;
+                    padding: 0 15px;
+                }
+            }
+        }
+    }
+}
+
+/* Medium devices (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .layout-container {
+        flex-direction: column;
+        height: 100vh;
+
+        .main-content {
+            flex: 1;
+            margin-left: 0 !important;
+            min-height: 0;
+            padding: 10px 10px;
+
+            &.sidebar-collapsed {
+                margin-left: 0;
+            }
+
+            .page-content {
+                overflow-y: auto;
+
+                .content-wrapper {
+                    max-width: 100%;
+                    margin: 15px 0;
+                    padding: 0 15px;
+                }
+            }
+        }
+    }
+}
+
+/* Small devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .layout-container {
+        .main-content {
+            margin-left: 0;
+
+            &.sidebar-collapsed {
+                margin-left: 0; /* Keep at 0 on mobile */
+            }
+
+            .page-content {
+                .content-wrapper {
+                    max-width: 100%;
+                    margin: 0;
+                    padding: 15px;
+                }
+            }
+        }
+    }
+}
+
+/* Mobile First - Extra Small devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .layout-container {
+        flex-direction: column;
+        height: 100dvh;
+
+        .main-content {
+            flex: 1;
+            margin-left: 0 !important;
+            min-height: 0;
+
+            .page-content {
+                padding: 8px;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+
+                .content-wrapper {
+                    max-width: 100%;
+                    min-height: 100%;
+                    margin: 0;
+                    padding: 12px;
+
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .layout-container {
+        flex-direction: column;
+        height: 100dvh;
+
+        .main-content {
+            flex: 1;
+            margin-left: 0 !important;
+            min-height: 0;
+
+            .page-content {
+                padding: 8px;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+
+                .content-wrapper {
+                    max-width: 100%;
+                    min-height: 100%;
+                    margin: 0;
+                    padding: 10px 5px;
+                }
+            }
+        }
+    }
+}
+
+/* Landscape orientation for mobile devices */
+@media (max-width: 768px) and (orientation: landscape) {
+    .layout-container {
+        .main-content {
+            .page-content {
+                padding: 8px 16px;
+
+                .content-wrapper {
+                    max-width: 100%;
+                    padding: 0 8px;
+                }
+            }
+        }
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) and (orientation: portrait) {
+    .layout-container {
+        flex-direction: column;
+
+        .main-content {
+            width: 100%;
+            margin-left: 0 !important;
+
+            .page-content {
+                padding: 12px;
+                height: calc(100vh - 60px);
+
+                .content-wrapper {
+                    max-width: 100%;
+                    height: 100%;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+}
+
+/* Small tablet landscape */
+@media (max-width: 1024px) and (orientation: landscape) {
+    .layout-container {
+        .main-content {
+            .page-content {
+                padding: 16px 20px;
+
+                .content-wrapper {
+                    max-width: 98%;
+                    padding: 0 12px;
+                }
+            }
+        }
+    }
+}
+
+/* Touch devices specific adjustments */
+@media (pointer: coarse) {
+    .layout-container {
+        .main-content {
+            .page-content {
+                padding: 16px;
+                -webkit-overflow-scrolling: touch;
+
+                .content-wrapper {
+                    padding: 0 8px;
+                }
+            }
+        }
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .layout-container {
+        .main-content {
+            .page-content {
+                .content-wrapper {
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+            }
+        }
+    }
+}
+
+/* Print styles */
+@media print {
+    .layout-container {
+        display: block;
+        height: auto;
+        background: white;
+
+        .main-content {
+            margin-left: 0 !important;
+
+            .page-content {
+                padding: 0;
+                background: white;
+                overflow: visible;
+
+                .content-wrapper {
+                    max-width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .layout-container {
+        animation: none;
+
+        &::before,
+        &::after {
+            animation: none;
+        }
+
+        .main-content {
+            transition: none;
+        }
+    }
+}
+
+/* Smooth transitions for all screen sizes */
+.main-content {
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent layout shift during transitions */
+.layout * {
+    box-sizing: border-box;
+}
+
+/* Updated Wave Animation Keyframes - konsisten dengan Login.scss */
+@keyframes elegantWaveFlow {
+    0%,
+    100% {
+        background-position:
+            20% 30%,
+            80% 70%,
+            60% 20%,
+            30% 80%,
+            25% 65%,
+            75% 35%,
+            50% 85%,
+            0% 0%;
+    }
+    25% {
+        background-position:
+            30% 40%,
+            70% 60%,
+            70% 30%,
+            40% 70%,
+            35% 55%,
+            65% 45%,
+            40% 75%,
+            25% 25%;
+    }
+    50% {
+        background-position:
+            40% 50%,
+            60% 50%,
+            80% 40%,
+            50% 60%,
+            45% 45%,
+            55% 55%,
+            30% 65%,
+            50% 50%;
+    }
+    75% {
+        background-position:
+            30% 60%,
+            70% 40%,
+            50% 50%,
+            60% 50%,
+            55% 35%,
+            45% 65%,
+            60% 55%,
+            75% 75%;
+    }
+}
+
+@keyframes gentleFloat {
+    0%,
+    100% {
+        background-position:
+            15% 45%,
+            85% 55%,
+            45% 25%,
+            55% 75%;
+        opacity: 0.8;
+        transform: scale(1) rotate(0deg);
+    }
+    33% {
+        background-position:
+            25% 55%,
+            75% 45%,
+            55% 35%,
+            45% 65%;
+        opacity: 0.6;
+        transform: scale(1.02) rotate(1deg);
+    }
+    66% {
+        background-position:
+            35% 65%,
+            65% 35%,
+            65% 45%,
+            35% 55%;
+        opacity: 0.4;
+        transform: scale(0.98) rotate(-0.5deg);
+    }
+}
+
+@keyframes subtleParticleFloat {
+    0% {
+        background-position:
+            0px 0px,
+            45px 60px,
+            135px 280px,
+            75px 110px,
+            230px 35px;
+        opacity: 0.6;
+    }
+    25% {
+        background-position:
+            55px -5px,
+            100px 55px,
+            190px 275px,
+            130px 105px,
+            285px 30px;
+        opacity: 0.4;
+    }
+    50% {
+        background-position:
+            110px -10px,
+            155px 50px,
+            245px 270px,
+            185px 100px,
+            340px 25px;
+        opacity: 0.7;
+    }
+    75% {
+        background-position:
+            165px -5px,
+            210px 45px,
+            300px 265px,
+            240px 95px,
+            395px 20px;
+        opacity: 0.3;
+    }
+    100% {
+        background-position:
+            220px 0px,
+            265px 40px,
+            355px 260px,
+            295px 90px,
+            450px 15px;
+        opacity: 0.6;
+    }
+}

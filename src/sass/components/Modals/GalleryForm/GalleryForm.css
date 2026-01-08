@@ -1,0 +1,556 @@
+@charset "UTF-8";
+.gallery-form {
+  font-family: "Barlow", sans-serif;
+  color: #2d4c52;
+  padding: 20px;
+  /* Image Upload Area */
+  /* ✅ NEW: Image Preview Container */
+  /* Form Actions */
+}
+.gallery-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.gallery-form .form-error,
+.gallery-form .form-success {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+.gallery-form .form-error {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+.gallery-form .form-success {
+  background: #d1fae5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+.gallery-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.gallery-form .form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2d4c52;
+}
+.gallery-form .image-upload-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+.gallery-form .image-preview-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+.gallery-form .image-preview-container .file-input {
+  display: none;
+}
+.gallery-form .image-preview {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  /* ✅ NEW: Image Actions Container */
+  /* ✅ NEW: Change Image Button */
+  /* ✅ UPDATED: Remove Image Button */
+}
+.gallery-form .image-preview img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.gallery-form .image-preview .image-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.gallery-form .image-preview .change-image-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(45, 76, 82, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+.gallery-form .image-preview .change-image-btn svg {
+  width: 16px;
+  height: 16px;
+}
+.gallery-form .image-preview .change-image-btn:hover {
+  background: rgba(45, 76, 82, 0.95);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(45, 76, 82, 0.3);
+}
+.gallery-form .image-preview .change-image-btn:active {
+  transform: scale(0.95);
+}
+.gallery-form .image-preview .remove-image-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+.gallery-form .image-preview .remove-image-btn svg {
+  width: 16px;
+  height: 16px;
+}
+.gallery-form .image-preview .remove-image-btn:hover {
+  background: rgba(239, 68, 68, 0.95);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+.gallery-form .image-preview .remove-image-btn:active {
+  transform: scale(0.95);
+}
+.gallery-form .upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  min-height: 300px;
+}
+.gallery-form .upload-placeholder:hover {
+  border-color: #2d4c52;
+  background: #f1f5f9;
+  color: #2d4c52;
+}
+.gallery-form .upload-placeholder svg {
+  color: #94a3b8;
+  width: 28px;
+  height: 28px;
+}
+.gallery-form .upload-placeholder .file-input {
+  display: none;
+}
+.gallery-form .upload-error-tooltip {
+  position: absolute;
+  top: -37px;
+  left: 45%;
+  background: rgba(229, 62, 62, 0.95);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  font-family: "Barlow", sans-serif;
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+.gallery-form .upload-error-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(229, 62, 62, 0.95);
+}
+.gallery-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #e2e8f0;
+}
+.gallery-form .form-actions .btn-secondary,
+.gallery-form .form-actions .btn-primary {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.gallery-form .form-actions .btn-secondary {
+  background: white;
+  color: #2d4c52;
+  border: 2px solid #e2e8f0;
+}
+.gallery-form .form-actions .btn-secondary:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #2d4c52;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+.gallery-form .form-actions .btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.gallery-form .form-actions .btn-primary {
+  background: linear-gradient(135deg, #f3994b, #e6863f);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px rgba(45, 76, 82, 0.1);
+  min-width: 150px;
+}
+.gallery-form .form-actions .btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e6863f, #d95d39);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(243, 153, 75, 0.4);
+}
+.gallery-form .form-actions .btn-primary:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+  transform: none;
+}
+.gallery-form .form-actions .btn-primary .btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10px;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1440px) {
+  .gallery-form {
+    padding: 18px;
+  }
+  .gallery-form .image-preview-container {
+    max-width: 280px;
+  }
+  .gallery-form .image-preview {
+    max-width: 280px;
+  }
+  .gallery-form .image-preview .image-actions {
+    top: 7px;
+    right: 7px;
+    gap: 7px;
+  }
+  .gallery-form .image-preview .change-image-btn,
+  .gallery-form .image-preview .remove-image-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .gallery-form .image-preview .change-image-btn svg,
+  .gallery-form .image-preview .remove-image-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+  .gallery-form .upload-placeholder {
+    padding: 28px;
+    font-size: 14px;
+  }
+  .gallery-form .upload-error-tooltip {
+    font-size: 13px;
+    padding: 7px 11px;
+  }
+  .gallery-form .form-actions .btn-secondary,
+  .gallery-form .form-actions .btn-primary {
+    padding: 11px 22px;
+    font-size: 14px;
+  }
+  .gallery-form .form-actions .btn-primary {
+    min-width: 140px;
+  }
+  .gallery-form .form-actions .btn-primary .btn-loading {
+    min-height: 20px;
+  }
+}
+@media (max-width: 1280px) {
+  .gallery-form {
+    padding: 16px;
+  }
+  .gallery-form .image-preview-container {
+    max-width: 270px;
+  }
+  .gallery-form .image-preview {
+    max-width: 270px;
+  }
+  .gallery-form .image-preview .image-actions {
+    top: 7px;
+    right: 7px;
+    gap: 7px;
+  }
+  .gallery-form .image-preview .change-image-btn,
+  .gallery-form .image-preview .remove-image-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .gallery-form .image-preview .change-image-btn svg,
+  .gallery-form .image-preview .remove-image-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+  .gallery-form .upload-placeholder {
+    padding: 26px;
+    font-size: 14px;
+  }
+  .gallery-form .upload-error-tooltip {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+  .gallery-form .form-actions .btn-secondary,
+  .gallery-form .form-actions .btn-primary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .gallery-form .form-actions .btn-primary {
+    min-width: 135px;
+  }
+  .gallery-form .form-actions .btn-primary .btn-loading {
+    min-height: 10px;
+  }
+}
+@media (max-width: 1024px) {
+  .gallery-form {
+    padding: 16px;
+  }
+  .gallery-form .image-preview-container {
+    max-width: 260px;
+  }
+  .gallery-form .image-preview {
+    max-width: 260px;
+  }
+  .gallery-form .image-preview .image-actions {
+    top: 6px;
+    right: 6px;
+    gap: 6px;
+  }
+  .gallery-form .image-preview .change-image-btn,
+  .gallery-form .image-preview .remove-image-btn {
+    width: 28px;
+    height: 28px;
+  }
+  .gallery-form .image-preview .change-image-btn svg,
+  .gallery-form .image-preview .remove-image-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .gallery-form .upload-placeholder {
+    max-width: 260px;
+    padding: 24px;
+    font-size: 13px;
+  }
+  .gallery-form .upload-error-tooltip {
+    font-size: 13px;
+    padding: 6px 9px;
+    white-space: normal;
+    max-width: 90%;
+  }
+}
+@media (max-width: 800px) {
+  .gallery-form {
+    padding: 14px;
+  }
+  .gallery-form .image-preview-container {
+    max-width: 240px;
+  }
+  .gallery-form .image-preview {
+    max-width: 240px;
+  }
+  .gallery-form .image-preview .image-actions {
+    top: 6px;
+    right: 6px;
+    gap: 6px;
+  }
+  .gallery-form .image-preview .change-image-btn,
+  .gallery-form .image-preview .remove-image-btn {
+    width: 28px;
+    height: 28px;
+  }
+  .gallery-form .image-preview .change-image-btn svg,
+  .gallery-form .image-preview .remove-image-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .gallery-form .upload-placeholder {
+    max-width: 240px;
+    padding: 22px;
+    font-size: 13px;
+  }
+  .gallery-form .upload-error-tooltip {
+    font-size: 13px;
+    padding: 6px 9px;
+    white-space: normal;
+    max-width: 85%;
+  }
+}
+@media (max-width: 480px) {
+  .gallery-form {
+    padding: 16px;
+  }
+  .gallery-form .image-preview-container {
+    max-width: 100%;
+  }
+  .gallery-form .image-preview {
+    max-width: 100%;
+    aspect-ratio: 3/4;
+  }
+  .gallery-form .image-preview .image-actions {
+    top: 8px;
+    right: 8px;
+    gap: 8px;
+  }
+  .gallery-form .image-preview .change-image-btn,
+  .gallery-form .image-preview .remove-image-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .gallery-form .image-preview .change-image-btn svg,
+  .gallery-form .image-preview .remove-image-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  .gallery-form .upload-placeholder {
+    max-width: 100%;
+    min-height: 300px;
+    padding: 20px;
+    font-size: 12px;
+  }
+  .gallery-form .upload-error-tooltip {
+    top: -40px;
+    font-size: 12px;
+    padding: 5px 8px;
+    white-space: normal;
+    max-width: 80%;
+  }
+  .gallery-form .upload-error-tooltip::after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(229, 62, 62, 0.95);
+    left: 15px;
+  }
+  .gallery-form .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 23px;
+  }
+  .gallery-form .form-actions .btn-secondary,
+  .gallery-form .form-actions .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+  .gallery-form .form-actions .btn-primary .btn-loading {
+    min-width: auto;
+    min-height: 1em;
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 380px) {
+  .gallery-form {
+    padding: 12px;
+  }
+  .gallery-form .image-preview-container {
+    max-width: 100%;
+  }
+  .gallery-form .image-preview {
+    max-width: 100%;
+  }
+  .gallery-form .image-preview .image-actions {
+    top: 6px;
+    right: 6px;
+    gap: 6px;
+  }
+  .gallery-form .image-preview .change-image-btn,
+  .gallery-form .image-preview .remove-image-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .gallery-form .image-preview .change-image-btn svg,
+  .gallery-form .image-preview .remove-image-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  .gallery-form .upload-placeholder {
+    padding: 18px;
+    font-size: 11px;
+  }
+  .gallery-form .upload-error-tooltip {
+    top: -38px;
+    font-size: 11px;
+    padding: 4px 7px;
+    white-space: normal;
+    max-width: 75%;
+  }
+  .gallery-form .upload-error-tooltip::after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid rgba(229, 62, 62, 0.95);
+    left: 12px;
+  }
+  .gallery-form .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 23px;
+  }
+  .gallery-form .form-actions .btn-secondary,
+  .gallery-form .form-actions .btn-primary {
+    padding: 10px 20px;
+  }
+}/*# sourceMappingURL=GalleryForm.css.map */

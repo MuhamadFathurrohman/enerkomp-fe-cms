@@ -1,0 +1,211 @@
+/* src/sass/components/Modal/Modal.scss */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+
+    .modal-content {
+        background: white;
+        border-radius: 16px;
+        box-shadow:
+            0 15px 30px rgba(45, 76, 82, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        max-height: 90vh;
+        overflow-y: auto;
+        width: 100%;
+        max-width: 1050px;
+        animation: scaleIn 0.2s ease-out;
+
+        /* Ukuran modal */
+        .modal-size-small {
+            max-width: 400px;
+        }
+
+        .modal-size-medium {
+            max-width: 600px;
+        }
+
+        .modal-size-large {
+            max-width: 800px;
+        }
+    }
+}
+
+/* Header Modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(45, 76, 82, 0.1);
+    background: linear-gradient(135deg, #2d4c52, #1e3a40);
+    color: white;
+    border-radius: 16px 16px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-btn:hover {
+    color: white;
+}
+
+/* Body & Footer */
+.modal-body {
+    padding: 0; /* Form punya padding sendiri */
+}
+
+.modal-footer {
+    padding: 0 24px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid rgba(45, 76, 82, 0.1);
+}
+
+/* Media Queries untuk Ukuran Modal */
+@media (max-width: 1920px) {
+    .modal-overlay {
+        .modal-content {
+            max-width: 800px;
+
+            overflow-y: auto;
+            /* Hide scrollbar but keep scroll functionality */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+            &::-webkit-scrollbar {
+                display: none; /* WebKit */
+            }
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .modal-overlay {
+        .modal-content {
+            max-width: 750px;
+
+            overflow-y: auto;
+            /* Hide scrollbar but keep scroll functionality */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+            &::-webkit-scrollbar {
+                display: none; /* WebKit */
+            }
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .modal-overlay {
+        .modal-content {
+            max-width: 730px;
+
+            overflow-y: auto;
+            /* Hide scrollbar but keep scroll functionality */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+            &::-webkit-scrollbar {
+                display: none; /* WebKit */
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .modal-overlay {
+        .modal-content {
+            max-width: 650px;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .modal-overlay {
+        .modal-content {
+            max-width: 640px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-overlay {
+        .modal-content {
+            margin: 10px;
+            max-width: 300px;
+
+            overflow-y: auto;
+            /* Hide scrollbar but keep scroll functionality */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+            &::-webkit-scrollbar {
+                display: none; /* WebKit */
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .modal-overlay {
+        .modal-content {
+            max-width: 290;
+        }
+    }
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

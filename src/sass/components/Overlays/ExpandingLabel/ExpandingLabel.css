@@ -1,0 +1,44 @@
+/* ExpandingLabel.scss - Working positioning control */
+.expanding-label-overlay {
+  position: fixed;
+  z-index: 99999 !important;
+  pointer-events: none;
+  margin-left: 8px;
+  margin-top: 6px;
+  transform: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.expanding-label-overlay .expanding-label {
+  background: #ffffff;
+  color: #374151;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e5e7eb;
+  font-family: "Poppins", sans-serif;
+}
+.expanding-label-overlay .expanding-label .label-text {
+  display: block;
+}
+
+/* Media Query Responsive */
+@media (max-width: 1024px) {
+  .expanding-label-overlay {
+    display: none !important;
+  }
+}
+/* Additional styling options */
+/* Animasi fade in (optional) */
+/* @keyframes expandingLabelFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(10px, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(15px, -50%) scale(1);
+  }
+} *//*# sourceMappingURL=ExpandingLabel.css.map */
